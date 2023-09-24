@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user_id'] = $user_id_and_queue_id;
 
     
-    $brgy_id =  isset($_POST['brgyid']);
-    $cedula =  isset($_POST['cedula']);
-    $recidency =  isset($_POST['residency']);
-    $brgy_clearance = isset($_POST['clearance']);
-    $indigency =  isset($_POST['indigency']);
-    $police_clearance =  isset($_POST['pc']);
+    // $brgy_id =  isset($_POST['brgyid']);
+    // $cedula =  isset($_POST['cedula']);
+    // $recidency =  isset($_POST['residency']);
+    // $brgy_clearance = isset($_POST['clearance']);
+    // $indigency =  isset($_POST['indigency']);
+    // $police_clearance =  isset($_POST['pc']);
 
     // echo '<pre>';
     // var_dump($_POST);
@@ -45,38 +45,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO tbl_userinformation(first_name, middle_name, last_name, gender, birthplace, birthday, queue_id) VALUES ('$firstname','$middlename','$lastname','$gender','$birhtplace','$birthdate','$user_id_and_queue_id')";
     $insert = $conn->query($sql);   
 
-    $sql = "INSERT INTO docu_table(user_id, cedula, brgy_id, brgy_clearance, indigency, recidency, police_clearance) VALUES ('$user_id_and_queue_id','$cedula','$brgy_id','$brgy_clearance','$indigency','$recidency','$police_clearance')";
-    $insert = $conn->query($sql);   
+    // $sql = "INSERT INTO docu_table(user_id, cedula, brgy_id, brgy_clearance, indigency, recidency, police_clearance) VALUES ('$user_id_and_queue_id','$cedula','$brgy_id','$brgy_clearance','$indigency','$recidency','$police_clearance')";
+    // $insert = $conn->query($sql);   
 
-    if ($brgy_id) {
-        if ($cedula) {
-            $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-		    $insert = $conn->query($sql);
-        } else {
-            $sql = "INSERT INTO tbl_brgyid(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-		    $insert = $conn->query($sql);
-        }
-    } elseif ($brgy_clearance) {
-        if ($cedula) {
-            $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-		    $insert = $conn->query($sql);
-        } else {
-            $sql = "INSERT INTO tbl_clearance(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-		    $insert = $conn->query($sql);
-        }
-    } elseif ($cedula) {
-        $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-        $insert = $conn->query($sql);
-    } elseif ($recidency) {
-        $sql = "INSERT INTO tbl_residency(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-        $insert = $conn->query($sql);
-    } elseif ($indigency) {
-        $sql = "INSERT INTO tbl_indigency(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-        $insert = $conn->query($sql);
-    } elseif ($police_clearance) {
-        $sql = "INSERT INTO tbl_policeclr(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-        $insert = $conn->query($sql);
-    }
+    // if ($brgy_id) {
+    //     if ($cedula) {
+    //         $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+	// 	    $insert = $conn->query($sql);
+    //     } else {
+    //         $sql = "INSERT INTO tbl_brgyid(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+	// 	    $insert = $conn->query($sql);
+    //     }
+    // } elseif ($brgy_clearance) {
+    //     if ($cedula) {
+    //         $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+	// 	    $insert = $conn->query($sql);
+    //     } else {
+    //         $sql = "INSERT INTO tbl_clearance(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+	// 	    $insert = $conn->query($sql);
+    //     }
+    // } elseif ($cedula) {
+    //     $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+    //     $insert = $conn->query($sql);
+    // } elseif ($recidency) {
+    //     $sql = "INSERT INTO tbl_residency(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+    //     $insert = $conn->query($sql);
+    // } elseif ($indigency) {
+    //     $sql = "INSERT INTO tbl_indigency(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+    //     $insert = $conn->query($sql);
+    // } elseif ($police_clearance) {
+    //     $sql = "INSERT INTO tbl_policeclr(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+    //     $insert = $conn->query($sql);
+    // }
 
 
 
@@ -220,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Documents</label>
                                     <div class="checkbox">
                                         <label>
@@ -252,9 +252,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <input type="checkbox" name="pc" value="True">Police Clearance
                                         </label>
                                     </div>
-                                </div>
-                                <button type="submit" onclick="printContent()" class="btn btn-info">Add Queue </button>
-                                <iframe id="myiframe" src="../../receipt.php?id=<?php echo $user_id_and_queue_id; ?>" style="display:none;"></iframe>
+                                </div> -->
+                                <button type="submit" class="btn btn-info">Add Visitor's Record </button>
+                                <!-- <iframe id="myiframe" src="../../receipt.php?id=<?php echo $user_id_and_queue_id; ?>" style="display:none;"></iframe> -->
                             </form>
                         </div>
                     </div>
