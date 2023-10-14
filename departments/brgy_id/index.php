@@ -4,7 +4,6 @@ include "../../process.php";
 $date = date('Y-m-d');
 $time = date('h:i');
 
-
 $arr = [];
 $arr2 = [];
 $arr3 = [];
@@ -12,9 +11,9 @@ $queue_id = '';
 $fullname = '';
 $first_name = '';
 $birthday = '';
-			
+$number_id = '';
 
-$sql = "SELECT * FROM tbl_brgyid where DATE = '$date' order by ID ASC limit 1";
+$sql = "SELECT * FROM tbl_brgyid brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id  order by ID ASC limit 1";
 $result = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -25,6 +24,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 if (count($arr) != 0) {
     $queue_id = $arr[0]['User_id'];
+    $number_id = $arr[0]['docu_table_id'];
 }
 
 $sql = "SELECT * FROM tbl_userinformation where queue_id = '$queue_id'";
@@ -38,13 +38,12 @@ while ($row = mysqli_fetch_assoc($result2)) {
 }
 
 if (count($arr2) != 0) {
-    $fullname = $arr2[0]['first_name'].' '.$arr2[0]['middle_name'].' '.$arr2[0]['last_name'];
+    $fullname = $arr2[0]['first_name'] . ' ' . $arr2[0]['middle_name'] . ' ' . $arr2[0]['last_name'];
     $first_name = $arr2[0]['first_name'];
     $birthday = date('M d, Y', strtotime($arr2[0]['birthday']));
 }
 
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO tbl_records(Department,DATE,TIME,fullname,User_id) VALUES ('Barangay ID','$date','$time','$fullname','$queue_id')";
     $insert = $conn->query($sql);
 
@@ -53,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql = "DELETE FROM tbl_brgyid WHERE  DATE = '$date' order by ID ASC limit 1";
     $delete = $conn->query($sql);
-    
+
     $sql = "UPDATE docu_table set brgy_id = 0 WHERE user_id = '$queue_id' order by docu_table_id DESC limit 1";
     $update = $conn->query($sql);
 
@@ -65,22 +64,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // echo '<pre>';
         // var_dump($arr2);
         // echo '<pre>';
-    }    
+    }
     if ($arr3[0]['brgy_id']) {
         if ($arr3[0]['cedula']) {
             $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$queue_id', '$first_name')";
-		    $insert = $conn->query($sql);
+            $insert = $conn->query($sql);
         } else {
             $sql = "INSERT INTO tbl_brgyid(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$queue_id', '$first_name')";
-		    $insert = $conn->query($sql);
+            $insert = $conn->query($sql);
         }
     } elseif ($arr3[0]['brgy_clearance']) {
         if ($arr3[0]['brgy_id']) {
             $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$queue_id', '$first_name')";
-		    $insert = $conn->query($sql);
+            $insert = $conn->query($sql);
         } else {
             $sql = "INSERT INTO tbl_clearance(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$queue_id', '$first_name')";
-		    $insert = $conn->query($sql);
+            $insert = $conn->query($sql);
         }
     } elseif ($arr3[0]['cedula']) {
         $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$queue_id', '$first_name')";
@@ -95,11 +94,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "INSERT INTO tbl_policeclr(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$queue_id', '$first_name')";
         $insert = $conn->query($sql);
     } else {
+        $user_id = $arr3[0]['user_id'];
+        $sql = "DELETE FROM docu_table WHERE user_id = '$user_id'";
+        $next = $conn->query($sql);
         header('Location:index.php');
     }
 
+    header('Location:index.php');
 }
-
 
 ?>
 
@@ -181,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                 </div>
                                 <ul class="plan-two ">
-                                    <h3>Queue ID: <?php echo $queue_id; ?></h3>
+                                    <h3>Queue ID: <b>00-<?php echo $number_id; ?></b></h3>
                                     <h3>Birthday: <?php echo $birthday; ?></h3>
                                 </ul>
                                 <form action="" method="post">
@@ -205,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/jquery.metisMenu.js"></script>
     <script src="../../assets/js/custom.js"></script>
-    
+
 
 
 </body>

@@ -3,12 +3,91 @@ include "../../process.php";
 include "../../admin/validation.php";    
 include "../../function.php";    
 
+require "../../vendor/autoload.php";
+
+// $ip = getHostName();
+// $ip1 = getHostByName(getHostName());
+
+$id = $_GET['id'] ?? '';
+
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+    $link = "https";
+else
+    $link = "http";
+     
+$link .= "://";
+     
+$link .= $_SERVER['SERVER_ADDR'];
+// $link .= $_SERVER['PHP_SELF'];
+     
+$link .= "/QueingSystem/system/current_queue.php?id=";
+     
+// echo '<pre>';
+// var_dump($ip);
+// echo '<pre>';
+
+
+// echo '<pre>';
+// var_dump($ip1);
+// echo '<pre>';
+
+// echo '<pre>';
+// var_dump($link.$id);
+// echo '<pre>';
+
 $date = date('Y-m-d');
 $time = date('h:i');
 
-$id = $_GET['id'] ?? '';
+
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
+
+
+$qr_code = QrCode::create($link.$id)
+                 ->setSize(220)
+                 ->setMargin(0);
+
+$writer = new PngWriter;
+
+$result = $writer->write($qr_code);
+
+$result->saveToFile("image/".$id.".png");
+
+
 $sql = "SELECT * FROM tbl_userinformation where queue_id = '$id'";
 $result = mysqli_query($conn, $sql);
+
+$sql = "SELECT * FROM docu_table";
+$docu = $conn->query($sql);
+
+$sql = "SELECT * FROM docu_table where user_id = '$id' order by docu_table_id DESC limit 1";
+$next = $conn->query($sql);
+$next2 = $next->fetch_array();
+
+// echo '<pre>';
+// var_dump($next);
+// echo '<pre>';
+if ($next2) {
+    $insert = false;
+} else {
+    $insert = true;
+
+}
+ 
+
+if ($docu) {
+    $queue_number = $docu->num_rows + 1;
+    // echo '<pre>';
+    // var_dump("ing");
+    // echo '<pre>';
+} else {
+    $queue_number = 1;
+}
+ 
+
+// echo '<pre>';
+// var_dump($todays_queue->num_rows);
+// echo '<pre>';
 
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -45,44 +124,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $police_clearance =  isset($_POST['pc']);
 
 
-    $sql = "INSERT INTO tbl_userinformation(first_name, middle_name, last_name, gender, birthplace, birthday, queue_id) VALUES ('$firstname','$middlename','$lastname','$gender','$birthplace','$birthdate','$user_id_and_queue_id')";
-    $insert = $conn->query($sql);   
+    // $sql = "INSERT INTO tbl_userinformation(first_name, middle_name, last_name, gender, birthplace, birthday, queue_id) VALUES ('$firstname','$middlename','$lastname','$gender','$birthplace','$birthdate','$user_id_and_queue_id')";
+    // $insert = $conn->query($sql);   
 
-    $sql = "INSERT INTO docu_table(user_id, cedula, brgy_id, brgy_clearance, indigency, recidency, police_clearance) VALUES ('$user_id_and_queue_id','$cedula','$brgy_id','$brgy_clearance','$indigency','$recidency','$police_clearance')";
-    $insert = $conn->query($sql);   
+    $sql = "INSERT INTO docu_table(user_id, cedula, brgy_id, brgy_clearance, indigency, recidency, police_clearance, user_queue_number) VALUES ('$user_id_and_queue_id','$cedula','$brgy_id','$brgy_clearance','$indigency','$recidency','$police_clearance','$queue_number')";
+    $insert = $conn->query($sql);  
 
-    if ($brgy_id) {
-        if ($cedula) {
+    //   echo '<pre>';
+    // var_dump($id_queue);
+    // echo '<pre>';
+
+
+    if ($insert) {
+        if ($brgy_id) {
+            if ($cedula) {
+                $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+                $insert = $conn->query($sql);
+            } else {
+                $sql = "INSERT INTO tbl_brgyid(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+                $insert = $conn->query($sql);
+            }
+        } elseif ($brgy_clearance) {
+            if ($cedula) {
+                $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+                $insert = $conn->query($sql);
+            } else {
+                $sql = "INSERT INTO tbl_clearance(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+                $insert = $conn->query($sql);
+            }
+        } elseif ($cedula) {
             $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-		    $insert = $conn->query($sql);
-        } else {
-            $sql = "INSERT INTO tbl_brgyid(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-		    $insert = $conn->query($sql);
+            $insert = $conn->query($sql);
+        } elseif ($recidency) {
+            $sql = "INSERT INTO tbl_residency(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+            $insert = $conn->query($sql);
+        } elseif ($indigency) {
+            $sql = "INSERT INTO tbl_indigency(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+            $insert = $conn->query($sql);
+        } elseif ($police_clearance) {
+            $sql = "INSERT INTO tbl_policeclr(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
+            $insert = $conn->query($sql);
         }
-    } elseif ($brgy_clearance) {
-        if ($cedula) {
-            $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-		    $insert = $conn->query($sql);
-        } else {
-            $sql = "INSERT INTO tbl_clearance(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-		    $insert = $conn->query($sql);
-        }
-    } elseif ($cedula) {
-        $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-        $insert = $conn->query($sql);
-    } elseif ($recidency) {
-        $sql = "INSERT INTO tbl_residency(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-        $insert = $conn->query($sql);
-    } elseif ($indigency) {
-        $sql = "INSERT INTO tbl_indigency(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-        $insert = $conn->query($sql);
-    } elseif ($police_clearance) {
-        $sql = "INSERT INTO tbl_policeclr(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-        $insert = $conn->query($sql);
+        header("location:view_visitor.php?id=".$id);
     }
-
-
-
 }
 			
 
@@ -178,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		function printContent() {
             var iframe = document.getElementById("myiframe");
             iframe.contentWindow.print();
-            }
+        }
         </script>
         <div id="page-wrapper" class="bg-image">
             <div id="page-inner">
@@ -222,6 +306,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </select>
                                     </div>
                                 </div>
+                                <?php if ($insert): ?>
                                 <div class="form-group">
                                     <label>Documents</label>
                                     <div class="checkbox">
@@ -255,13 +340,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </label>
                                     </div>
                                 </div>
-                                <button type="submit" onclick="printContent()" class="btn btn-info">Add Queue </button>
-                                <iframe id="myiframe" src="../../receipt.php?id=<?php echo $id; ?>" style="display:none;"></iframe>
+                                    <button type="submit" class="btn btn-info">Add Queue </button>
+                                    <!-- <button type="submit" onclick="printContent()" class="btn btn-info">Add Queue </button> -->
+                                    <?php else: ?>
+                                        <button type="submit" onclick="printContent();" class="btn btn-info">Print Queue Reciept </button>
+                                        <iframe id="myiframe" src="../../receipt.php?id=<?php echo $id; ?>" style="display:none;"></iframe>
+                                        <a href="cancel_queue.php?id=<?php echo $id; ?>" class="btn btn-danger btn-wd">Cancel Queue</a>
+                                <?php endif; ?>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <img style="text-align: center;" src="image/<?php echo $id; ?>.png" alt="">
         </div>
     </div>
 

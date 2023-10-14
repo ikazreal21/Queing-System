@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $birhtplace =  $_POST['birth_place'];
     $birthdate = date('Y-m-d', strtotime($_POST['birth_date']));
     $user_id_and_queue_id = randomString(6);
-    $_SESSION['user_id'] = $user_id_and_queue_id;
 
     
     // $brgy_id =  isset($_POST['brgyid']);
@@ -77,6 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //     $sql = "INSERT INTO tbl_policeclr(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
     //     $insert = $conn->query($sql);
     // }
+
+    header("location:visitors_record.php");
 
 
 
@@ -196,7 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Middle Name</label>
-                                        <input class="form-control" name="middle_name" type="text" required>
+                                        <input class="form-control" name="middle_name" type="text">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label>Last Name</label>

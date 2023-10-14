@@ -9,7 +9,6 @@ $arr2 = [];
 $first_name = '';
 $date = date('Y-m-d');
 $time = date('h:i');
-$user_id_and_queue_id = $_SESSION['user_id'];
 
 // $query = "SELECT * FROM docu_table ORDER BY docu_table_id DESC LIMIT 1";
 // $result = mysqli_query($conn, $query);
@@ -24,13 +23,19 @@ $user_id_and_queue_id = $_SESSION['user_id'];
 // if (count($arr) != 0) {
 //     $id = $arr[0]['user_id'];
 // }
-if (!$id)  {
-    $query = "SELECT * FROM tbl_userinformation where queue_id = '$user_id_and_queue_id'";
-    $result = mysqli_query($conn, $query);
-} else {
-    $query = "SELECT * FROM tbl_userinformation where queue_id = '$id'";
-    $result = mysqli_query($conn, $query);
+
+
+$sql = "SELECT * FROM docu_table where user_id = '$id'";
+$result = mysqli_query($conn, $sql);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $id_queue = $row['docu_table_id'];
 }
+
+
+$query = "SELECT * FROM tbl_userinformation where queue_id = '$id'";
+$result = mysqli_query($conn, $query);
+
 
 
 
@@ -62,9 +67,23 @@ if (count($arr2) != 0) {
 	echo "Time: "  . '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp' . '<span style="display: inline; margin: 0 auto; text-align: right; font-size: 20px; font-family: Helvetica">' . $time . '</span>' . "<br>";
     echo '<div style="text-align: center;">';
     echo "**Your Queue Identification**";
-    echo '<span style="display: block; margin: 0 auto; font-size: 50px; font-family: Helvetica">' . $id .'-'. $first_name . '</span>';
+    echo '<span style="display: block; margin: 0 auto; font-size: 50px; font-family: Helvetica">00-' . $id_queue . ' </span>';
+    echo '<span style="display: block; margin: 0 auto; font-size: 50px; font-family: Helvetica">' . $first_name . '</span>';
     echo "KEEP TICKET FOR VERIFICATION";
+    echo '<div>';
     echo "</div>";
+    echo '<div style="margin-bottom: 5px;">';
+    echo "</div>";
+    echo "</div>";
+    echo '<div style="text-align: center;">';
+    echo "<img src='departments/frontdesk/image/".$id.".png' alt=''>";
+    echo "</div>";
+    echo '<div style="margin-bottom: 5px;">';
+    echo "</div>";
+    echo '<div style="text-align: center;">';
+    echo "SCAN QR CODE FOR QUEUE POSITION";
+    echo "</div>";
+
     // ...
 } else {
     echo "No data found.";

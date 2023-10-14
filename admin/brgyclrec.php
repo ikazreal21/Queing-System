@@ -61,7 +61,7 @@ $result = mysqli_query($conn, $sql);
 		?>
 		<tr>
 			<td><?php echo $row['ID']; ?></td>
-			<td><?php echo $row['DATE']; ?></td>
+			<td><?php echo date('M d, Y', strtotime($row['DATE'])); ?></td>
 			<td><?php echo $row['TIME']; ?></td>
 			<td><?php echo $row['user_first_name']; ?></td>
 			<td><?php echo $row['User_id']; ?></td>

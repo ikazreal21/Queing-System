@@ -57,16 +57,16 @@ $result = mysqli_query($conn, $sql);
 			<th>User ID</th>
 		</tr>
 		<?php
-		while($row = mysqli_fetch_assoc($result)) {
-		?>
+while ($row = mysqli_fetch_assoc($result)) {
+    ?>
 		<tr>
 			<td><?php echo $row['ID']; ?></td>
-			<td><?php echo $row['DATE']; ?></td>
+			<td><?php echo date('M d, Y', strtotime($row['DATE'])); ?></td>
 			<td><?php echo $row['TIME']; ?></td>
 			<td><?php echo $row['user_first_name']; ?></td>
 			<td><?php echo $row['User_id']; ?></td>
 		</tr>
-		<?php } ?>
+		<?php }?>
 	</table>
 	<button type="button"><a href="index.php">Back</a></button>
 </body>

@@ -63,17 +63,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <th>Number currently serving</th>
     </tr>
     <?php
-    while ($row = mysqli_fetch_assoc($result)) {
-        ?>
+while ($row = mysqli_fetch_assoc($result)) {
+    ?>
         <tr>
             <td><?php echo $row['DEP']; ?></td>
-            <td><?php echo $row['DATE']; ?></td>
+            <td><?php echo date('M d, Y', strtotime($row['DATE'])); ?></td>
             <td><?php echo $row['TIME']; ?></td>
             <td><?php echo $row['NUMQ']; ?></td>
         </tr>
         <?php
-    }
-    ?>
+}
+?>
 </table>
 <form method="POST" action="">
     <button type="submit">Next</button>

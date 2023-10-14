@@ -15,8 +15,7 @@ $indigency_arr = [];
 $police_clear_arr = [];
 $residency_arr = [];
 
-
-$sql = "SELECT * FROM tbl_brgyid where DATE = '$date'";
+$sql = "SELECT * FROM tbl_brgyid brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $brgy_id = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($brgy_id)) {
@@ -30,7 +29,7 @@ if (count($brgy_id_arr) != 0) {
     array_shift($brgy_id_arr2);
 }
 
-$sql = "SELECT * FROM tbl_cedula where DATE = '$date'";
+$sql = "SELECT * FROM tbl_cedula brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $cedula = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($cedula)) {
@@ -44,7 +43,7 @@ if (count($cedula_arr) != 0) {
     array_shift($cedula_arr2);
 };
 
-$sql = "SELECT * FROM tbl_clearance where DATE = '$date'";
+$sql = "SELECT * FROM tbl_clearance brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $brgy_clear = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($brgy_clear)) {
@@ -58,7 +57,7 @@ if (count($brgy_clear_arr) != 0) {
     array_shift($brgy_clear_arr2);
 };
 
-$sql = "SELECT * FROM tbl_indigency where DATE = '$date'";
+$sql = "SELECT * FROM tbl_indigency brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $indigency = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($indigency)) {
@@ -72,7 +71,7 @@ if (count($indigency_arr) != 0) {
     array_shift($indigency_arr2);
 };
 
-$sql = "SELECT * FROM tbl_policeclr where DATE = '$date'";
+$sql = "SELECT * FROM tbl_policeclr brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $police_clear = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($police_clear)) {
@@ -87,7 +86,7 @@ if (count($police_clear_arr) != 0) {
 };
 
 
-$sql = "SELECT * FROM tbl_residency where DATE = '$date'";
+$sql = "SELECT * FROM tbl_residency brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $residency = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($residency)) {
@@ -202,7 +201,8 @@ header("Refresh:2");
                 <div>
                     <h2 class="text-center"> Now Serving</h2>
                     <?php if (count($brgy_id_arr) != 0): ?>
-                    <h2 class="text-center"> <mark style='color:blue;'><u> <?php echo $brgy_id_arr[0]['User_id']; ?>-<?php echo $brgy_id_arr[0]['user_first_name']; ?></u></mark> </h2>
+                    <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $brgy_id_arr[0]['docu_table_id']; ?></i>|
+                    <?php echo $brgy_id_arr[0]['user_first_name']; ?></u></mark></h1>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body">
@@ -217,7 +217,7 @@ header("Refresh:2");
                                     <td>
                                         <h3>
                                             <b>
-                                            <?php echo $i; ?>.) <?php echo $item['User_id']; ?> - <?php echo $item['user_first_name']; ?>
+                                            <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
                                             </b>
                                         </h3>
                                     </td>
@@ -238,7 +238,8 @@ header("Refresh:2");
                 <div>
                     <h2 class="text-center">Now Serving</h2>
                     <?php if (count($cedula_arr) != 0): ?>
-                    <h2 class="text-center"> <mark style='color:blue;'> <u> <?php echo $cedula_arr[0]['User_id']; ?>-<?php echo $cedula_arr[0]['user_first_name']; ?></u></mark> </h2>
+                    <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $cedula_arr[0]['docu_table_id']; ?></i>|
+                    <?php echo $cedula_arr[0]['user_first_name']; ?></u></mark></h1>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body">
@@ -253,7 +254,7 @@ header("Refresh:2");
                                     <td>
                                         <h3>
                                             <b>
-                                            <?php echo $i; ?>.) <?php echo $item['User_id']; ?> - <?php echo $item['user_first_name']; ?>
+                                            <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
                                             </b>
                                         </h3>
                                     </td>
@@ -274,7 +275,8 @@ header("Refresh:2");
                 <div>
                     <h2 class="text-center">Now Serving</h2>
                     <?php if (count($brgy_clear_arr) != 0): ?>
-                    <h2 class="text-center"> <mark style='color:blue;'> <u> <?php echo $brgy_clear_arr[0]['User_id']; ?>-<?php echo $brgy_clear_arr[0]['user_first_name']; ?> </u></mark> </h2>
+                    <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $brgy_clear_arr[0]['docu_table_id']; ?></i>|
+                    <?php echo $brgy_clear_arr[0]['user_first_name']; ?></u></mark></h1>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body">
@@ -289,7 +291,7 @@ header("Refresh:2");
                                     <td>
                                         <h3>
                                             <b>
-                                            <?php echo $i; ?>.) <?php echo $item['User_id']; ?> - <?php echo $item['user_first_name']; ?>
+                                            <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
                                             </b>
                                         </h3>
                                     </td>
@@ -310,7 +312,8 @@ header("Refresh:2");
                 <div>
                     <h2 class="text-center">Now Serving</h2>
                     <?php if (count($indigency_arr) != 0): ?>
-                    <h2 class="text-center"> <mark style='color:blue;'><u>  <?php echo $indigency_arr[0]['User_id']; ?>-<?php echo $indigency_arr[0]['user_first_name']; ?> </u></mark> </h2>
+                    <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $indigency_arr[0]['docu_table_id']; ?></i>|
+                    <?php echo $indigency_arr[0]['user_first_name']; ?></u></mark></h1>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body">
@@ -325,7 +328,7 @@ header("Refresh:2");
                                     <td>
                                         <h3>
                                             <b>
-                                            <?php echo $i; ?>.) <?php echo $item['User_id']; ?> - <?php echo $item['user_first_name']; ?>
+                                            <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
                                             </b>
                                         </h3>
                                     </td>
@@ -346,7 +349,8 @@ header("Refresh:2");
                 <div>
                     <h2 class="text-center">Now Serving</h2>
                     <?php if (count($police_clear_arr) != 0): ?>
-                        <h2 class="text-center"> <mark style='color:blue;'> <u> <?php echo $police_clear_arr[0]['User_id']; ?>-<?php echo $police_clear_arr[0]['user_first_name']; ?> </u></mark> </h2>
+                        <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $police_clear_arr[0]['docu_table_id']; ?></i>|
+                        <?php echo $police_clear_arr[0]['user_first_name']; ?></u></mark></h1>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body">
@@ -361,7 +365,7 @@ header("Refresh:2");
                                         <td>
                                             <h3>
                                                 <b>
-                                                <?php echo $i; ?>.) <?php echo $item['User_id']; ?> - <?php echo $item['user_first_name']; ?>
+                                                <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
                                                 </b>
                                             </h3>
                                         </td>
@@ -382,7 +386,8 @@ header("Refresh:2");
                 <div>
                     <h2 class="text-center">Now Serving</h2>
                     <?php if (count($residency_arr) != 0): ?>
-                    <h2 class="text-center"> <mark style='color:blue;'> <?php echo $residency_arr[0]['User_id']; ?>-<?php echo $residency_arr[0]['user_first_name']; ?></mark> </h2>
+                        <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $residency_arr[0]['docu_table_id']; ?></i>|
+                        <?php echo $residency_arr[0]['user_first_name']; ?></u></mark></h1>
                     <?php endif; ?>
                 </div>
                 <div class="panel-body">
@@ -397,7 +402,7 @@ header("Refresh:2");
                                         <td>
                                             <h3>
                                                 <b>
-                                                <?php echo $i; ?>.) <?php echo $item['User_id']; ?> - <?php echo $item['user_first_name']; ?>
+                                                <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
                                                 </b>
                                             </h3>
                                         </td>
