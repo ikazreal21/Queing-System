@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2023 at 04:41 AM
+-- Generation Time: Oct 14, 2023 at 07:05 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -82,42 +82,17 @@ CREATE TABLE `docu_table` (
   `brgy_clearance` varchar(255) NOT NULL,
   `indigency` varchar(255) NOT NULL,
   `recidency` varchar(255) NOT NULL,
-  `police_clearance` varchar(255) NOT NULL
+  `police_clearance` varchar(255) NOT NULL,
+  `user_queue_number` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `docu_table`
 --
 
-INSERT INTO `docu_table` (`docu_table_id`, `user_id`, `cedula`, `brgy_id`, `brgy_clearance`, `indigency`, `recidency`, `police_clearance`) VALUES
-(9, 'TcEU1R', '0', '0', '0', '0', '0', '0'),
-(10, 'KFkZEw', '', '1', '', '', '', ''),
-(11, 'pp6Ph2', '', '1', '', '', '', ''),
-(12, 'DbfX3c', '1', '', '', '', '', ''),
-(13, 'DbfX3c', '', '', '1', '', '', ''),
-(14, 'DbfX3c', '', '', '1', '', '', ''),
-(15, 'DbfX3c', '', '', '1', '', '', ''),
-(16, 'DbfX3c', '', '', '', '', '1', ''),
-(17, 'DbfX3c', '', '', '', '', '1', ''),
-(18, 'TcEU1R', '', '', '', '1', '', ''),
-(19, 'JoZoHD', '', '1', '', '', '', ''),
-(20, 'JoZoHD', '', '1', '', '', '', ''),
-(21, 'JoZoHD', '', '1', '', '', '', ''),
-(22, 'JoZoHD', '', '', '', '', '', '1'),
-(23, 'JoZoHD', '', '', '', '1', '', ''),
-(24, '1jFmKV', '', '1', '', '', '', ''),
-(25, 'n5gtST', '', '', '', '', '', '1'),
-(26, 'P0SWtp', '', '', '', '', '', '1'),
-(27, 'haES9b', '', '', '', '', '', '1'),
-(28, 'wZArZT', '', '', '', '', '', '1'),
-(29, 'YL7tjo', '', '', '', '', '', '1'),
-(30, 'HfIdga', '', '', '', '', '', '1'),
-(31, 'UZIdQi', '', '', '', '', '', '1'),
-(32, 'io2Un5', '', '', '', '', '', '1'),
-(33, 'Ab21Mi', '1', '', '', '', '', ''),
-(34, 'vTMHzi', '1', '', '', '', '', ''),
-(35, 'vTCCow', '1', '', '', '', '', ''),
-(36, 'Kp5Uq3', '1', '', '', '', '', '');
+INSERT INTO `docu_table` (`docu_table_id`, `user_id`, `cedula`, `brgy_id`, `brgy_clearance`, `indigency`, `recidency`, `police_clearance`, `user_queue_number`) VALUES
+(80, '3HQ9FR', '1', '1', '1', '', '1', '', '2'),
+(135, 'CJKGD0', '0', '0', '0', '1', '1', '1', '3');
 
 -- --------------------------------------------------------
 
@@ -134,18 +109,6 @@ CREATE TABLE `tbl_brgyid` (
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_brgyid`
---
-
-INSERT INTO `tbl_brgyid` (`ID`, `DEP`, `DATE`, `TIME`, `NUMQ`, `User_id`, `user_first_name`) VALUES
-(63, '', '2023-09-23', '09:56', 0, 'KFkZEw', 'Joaquin Zaki'),
-(64, '', '2023-09-23', '09:57', 0, 'pp6Ph2', 'Joaquin Zaki'),
-(65, '', '2023-09-23', '10:03', 0, 'JoZoHD', 'Joaquin'),
-(66, '', '2023-09-23', '10:07', 0, 'JoZoHD', 'Joaquin'),
-(67, '', '2023-09-23', '10:08', 0, 'JoZoHD', 'Joaquin'),
-(68, '', '2023-09-23', '10:11', 0, '1jFmKV', 'Joaquin');
 
 -- --------------------------------------------------------
 
@@ -168,10 +131,10 @@ CREATE TABLE `tbl_cedrecords` (
 --
 
 INSERT INTO `tbl_cedrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `User_id`, `user_first_name`) VALUES
-(1, 'Cedula', '2023-05-23', '06:46', 16, '', ''),
-(2, 'Cedula', '2023-09-23', '09:25', 0, 'TcEU1R', 'Joaquin Zaki'),
-(3, 'Cedula', '2023-09-23', '09:27', 0, '', ''),
-(4, 'Cedula', '2023-09-23', '09:27', 0, '', '');
+(1, 'Cedula', '2023-10-14', '09:01', 0, 'M20DBK', 'Joaquin Zaki'),
+(2, 'Cedula', '2023-10-14', '09:08', 0, 'M20DBK', 'Joaquin Zaki'),
+(3, 'Cedula', '2023-10-14', '09:08', 0, '4V613Y', 'Juan'),
+(4, 'Cedula', '2023-10-14', '09:08', 0, 'EV89FG', 'Jobelle');
 
 -- --------------------------------------------------------
 
@@ -186,17 +149,6 @@ CREATE TABLE `tbl_cedula` (
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_cedula`
---
-
-INSERT INTO `tbl_cedula` (`ID`, `DATE`, `TIME`, `User_id`, `user_first_name`) VALUES
-(38, '2023-09-23', '09:57', 'DbfX3c', 'Joaquin'),
-(39, '2023-09-23', '10:36', 'Ab21Mi', 'Joaquin55555555'),
-(40, '2023-09-23', '10:37', 'vTMHzi', 'Joaquin666666666'),
-(41, '2023-09-23', '10:37', 'vTCCow', 'Joaquin666666666'),
-(42, '2023-09-23', '10:38', 'Kp5Uq3', 'Joaquin77777777');
 
 -- --------------------------------------------------------
 
@@ -213,15 +165,6 @@ CREATE TABLE `tbl_clearance` (
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_clearance`
---
-
-INSERT INTO `tbl_clearance` (`ID`, `DEP`, `DATE`, `TIME`, `NUMQ`, `User_id`, `user_first_name`) VALUES
-(28, '', '2023-09-23', '09:58', 0, 'DbfX3c', 'Joaquin'),
-(29, '', '2023-09-23', '09:58', 0, 'DbfX3c', 'Joaquin'),
-(30, '', '2023-09-23', '09:58', 0, 'DbfX3c', 'Joaquin');
 
 -- --------------------------------------------------------
 
@@ -244,9 +187,10 @@ CREATE TABLE `tbl_clrrecords` (
 --
 
 INSERT INTO `tbl_clrrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `User_id`, `user_first_name`) VALUES
-(3, 'Barangay Clearance', '2023-09-23', '09:32', 0, 'TcEU1R', 'Joaquin Zaki'),
-(4, 'Barangay Clearance', '2023-09-23', '09:32', 0, '', ''),
-(5, 'Barangay Clearance', '2023-09-23', '09:33', 0, '', '');
+(1, 'Barangay Clearance', '2023-10-14', '09:01', 0, 'M20DBK', 'Joaquin Zaki'),
+(2, 'Barangay Clearance', '2023-10-14', '09:23', 0, 'M20DBK', 'Joaquin Zaki'),
+(3, 'Barangay Clearance', '2023-10-14', '09:23', 0, '4V613Y', 'Juan'),
+(4, 'Barangay Clearance', '2023-10-14', '09:23', 0, 'EV89FG', 'Jobelle');
 
 -- --------------------------------------------------------
 
@@ -269,8 +213,10 @@ CREATE TABLE `tbl_idrecords` (
 --
 
 INSERT INTO `tbl_idrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `User_id`, `user_first_name`) VALUES
-(336, 'Barangay ID', '2023-09-23', '09:32', 0, 'TcEU1R', 'Joaquin Zaki'),
-(337, 'Barangay ID', '2023-09-23', '09:32', 0, '', '');
+(1, 'Barangay ID', '2023-10-14', '09:01', 0, 'M20DBK', 'Joaquin Zaki'),
+(2, 'Barangay ID', '2023-10-14', '09:09', 0, 'M20DBK', 'Joaquin Zaki'),
+(3, 'Barangay ID', '2023-10-14', '09:23', 0, '4V613Y', 'Juan'),
+(4, 'Barangay ID', '2023-10-14', '09:23', 0, 'EV89FG', 'Jobelle');
 
 -- --------------------------------------------------------
 
@@ -287,14 +233,6 @@ CREATE TABLE `tbl_indigency` (
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_indigency`
---
-
-INSERT INTO `tbl_indigency` (`ID`, `DEP`, `DATE`, `TIME`, `NUMQ`, `User_id`, `user_first_name`) VALUES
-(54, '', '2023-09-23', '10:02', 0, 'TcEU1R', 'Joaquin Zaki'),
-(55, '', '2023-09-23', '10:09', 0, 'JoZoHD', 'Joaquin');
 
 -- --------------------------------------------------------
 
@@ -317,7 +255,9 @@ CREATE TABLE `tbl_indrecords` (
 --
 
 INSERT INTO `tbl_indrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `User_id`, `user_first_name`) VALUES
-(4, 'Indigency', '2023-09-23', '09:38', 0, 'TcEU1R', 'Joaquin Zaki');
+(1, 'Indigency', '2023-10-14', '09:02', 0, 'M20DBK', 'Joaquin Zaki'),
+(2, 'Indigency', '2023-10-14', '09:26', 0, 'M20DBK', 'Joaquin Zaki'),
+(3, 'Indigency', '2023-10-14', '09:26', 0, 'EV89FG', 'Jobelle');
 
 -- --------------------------------------------------------
 
@@ -365,7 +305,10 @@ CREATE TABLE `tbl_pcrecords` (
 --
 
 INSERT INTO `tbl_pcrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `User_id`, `user_first_name`) VALUES
-(3, 'Police Clearance', '2023-09-23', '09:39', 0, 'TcEU1R', 'Joaquin Zaki');
+(1, 'Police Clearance', '2023-10-14', '09:03', 0, 'M20DBK', 'Joaquin Zaki'),
+(2, 'Police Clearance', '2023-10-14', '09:26', 0, '4V613Y', 'Juan'),
+(3, 'Police Clearance', '2023-10-14', '09:26', 0, 'M20DBK', 'Joaquin Zaki'),
+(4, 'Police Clearance', '2023-10-14', '09:26', 0, 'EV89FG', 'Jobelle');
 
 -- --------------------------------------------------------
 
@@ -382,21 +325,6 @@ CREATE TABLE `tbl_policeclr` (
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_policeclr`
---
-
-INSERT INTO `tbl_policeclr` (`ID`, `DEP`, `DATE`, `TIME`, `NUMQ`, `User_id`, `user_first_name`) VALUES
-(28, '', '2023-09-23', '10:08', 0, 'JoZoHD', 'Joaquin'),
-(29, '', '2023-09-23', '10:19', 0, 'n5gtST', 'Joaquin1111'),
-(30, '', '2023-09-23', '10:21', 0, 'P0SWtp', 'Joaquin1111'),
-(31, '', '2023-09-23', '10:21', 0, 'haES9b', 'Joaquin22222222'),
-(32, '', '2023-09-23', '10:25', 0, 'wZArZT', 'Joaquin33333'),
-(33, '', '2023-09-23', '10:25', 0, 'YL7tjo', 'Joaquin33333'),
-(34, '', '2023-09-23', '10:25', 0, 'HfIdga', 'Joaquin33333'),
-(35, '', '2023-09-23', '10:25', 0, 'UZIdQi', 'Joaquin4444444444'),
-(36, '', '2023-09-23', '10:35', 0, 'io2Un5', 'Joaquin4444444444');
 
 -- --------------------------------------------------------
 
@@ -419,131 +347,50 @@ CREATE TABLE `tbl_records` (
 --
 
 INSERT INTO `tbl_records` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `fullname`, `User_id`) VALUES
-(232, 'Barangay ID', '2023-05-14', '11:42', 1, '', ''),
-(233, 'Brgy.Clearance', '2023-05-14', '11:42', 2, '', ''),
-(234, 'Police Clearance', '2023-05-14', '11:45', 1, '', ''),
-(235, 'Residency', '2023-05-14', '11:45', 2, '', ''),
-(236, 'Indigency', '2023-05-14', '11:49', 1, '', ''),
-(237, 'Brgy.Clearance', '2023-05-17', '08:06', 1, '', ''),
-(238, 'Cedula', '2023-05-17', '08:51', 2, '', ''),
-(239, 'Brgy.Clearance', '2023-05-19', '07:26', 1, '', ''),
-(240, 'Brgy.Clearance', '2023-05-19', '07:51', 1, '', ''),
-(241, 'Cedula', '2023-05-19', '07:51', 2, '', ''),
-(242, 'Indigency', '2023-05-19', '07:55', 1, '', ''),
-(243, 'Police Clearance', '2023-05-19', '07:55', 2, '', ''),
-(244, 'Indigency', '2023-05-19', '07:56', 1, '', ''),
-(245, 'Residency', '2023-05-19', '07:56', 1, '', ''),
-(246, 'Brgy.Clearance', '2023-05-19', '10:44', 1, '', ''),
-(247, 'Barangay ID', '2023-05-19', '11:04', 1, '', ''),
-(248, 'Barangay ID', '2023-05-19', '11:04', 2, '', ''),
-(249, 'Barangay ID', '2023-05-19', '11:04', 3, '', ''),
-(250, 'Brgy.Clearance', '2023-05-19', '11:04', 4, '', ''),
-(251, 'Brgy.Clearance', '2023-05-19', '11:04', 5, '', ''),
-(252, 'Brgy.Clearance', '2023-05-19', '11:04', 6, '', ''),
-(253, 'Indigency', '2023-05-19', '11:04', 7, '', ''),
-(254, 'Indigency', '2023-05-19', '11:04', 8, '', ''),
-(255, 'Indigency', '2023-05-19', '11:04', 9, '', ''),
-(256, 'Indigency', '2023-05-19', '11:05', 10, '', ''),
-(257, 'Residency', '2023-05-19', '11:05', 11, '', ''),
-(258, 'Residency', '2023-05-19', '11:05', 12, '', ''),
-(259, 'Residency', '2023-05-19', '11:05', 13, '', ''),
-(260, 'Police Clearance', '2023-05-19', '11:05', 14, '', ''),
-(261, 'Police Clearance', '2023-05-19', '11:05', 15, '', ''),
-(262, 'Police Clearance', '2023-05-19', '11:05', 16, '', ''),
-(263, 'Cedula', '2023-05-19', '11:05', 17, '', ''),
-(264, 'Cedula', '2023-05-19', '11:05', 18, '', ''),
-(265, 'Cedula', '2023-05-19', '11:05', 19, '', ''),
-(266, 'Brgy.Clearance', '2023-05-23', '03:44', 12, '', ''),
-(267, 'Police Clearance', '2023-05-23', '03:44', 13, '', ''),
-(268, 'Brgy.Clearance', '2023-05-23', '03:44', 14, '', ''),
-(269, 'Indigency', '2023-05-23', '03:45', 14, '', ''),
-(270, 'Indigency', '2023-05-23', '03:45', 14, '', ''),
-(271, 'Indigency', '2023-05-23', '03:48', 14, '', ''),
-(272, 'Brgy.Clearance', '2023-05-23', '03:49', 2, '', ''),
-(273, 'Barangay ID', '2023-05-23', '03:49', 1, '', ''),
-(274, 'Indigency', '2023-05-23', '03:53', 14, '', ''),
-(275, 'Police Clearance', '2023-05-23', '03:55', 14, '', ''),
-(276, 'Residency', '2023-05-23', '04:03', 14, '', ''),
-(277, 'Indigency', '2023-05-23', '04:05', 15, '', ''),
-(278, 'Indigency', '2023-05-23', '04:05', 16, '', ''),
-(279, 'Indigency', '2023-05-23', '04:05', 17, '', ''),
-(280, 'Barangay ID', '2023-05-23', '04:05', 18, '', ''),
-(281, 'Police Clearance', '2023-05-23', '04:05', 19, '', ''),
-(282, 'Police Clearance', '2023-05-23', '04:05', 20, '', ''),
-(283, 'Police Clearance', '2023-05-23', '04:05', 21, '', ''),
-(284, 'Police Clearance', '2023-05-23', '04:07', 22, '', ''),
-(285, '', '2023-05-23', '04:07', 22, '', ''),
-(286, '', '2023-05-23', '04:07', 22, '', ''),
-(287, 'Police Clearance', '2023-05-23', '04:07', 23, '', ''),
-(288, '', '2023-05-23', '04:07', 23, '', ''),
-(289, 'Indigency', '2023-05-23', '04:07', 24, '', ''),
-(290, '', '2023-05-23', '04:09', 24, '', ''),
-(291, 'Indigency', '2023-05-23', '05:01', 1, '', ''),
-(292, 'Cedula', '2023-05-23', '05:06', 2, '', ''),
-(293, 'Cedula', '2023-05-23', '05:06', 3, '', ''),
-(294, 'Cedula', '2023-05-23', '05:06', 4, '', ''),
-(295, 'Indigency', '2023-05-23', '05:21', 5, '', ''),
-(296, 'Indigency', '2023-05-23', '05:23', 6, '', ''),
-(297, 'Indigency', '2023-05-23', '05:23', 7, '', ''),
-(298, 'Indigency', '2023-05-23', '05:23', 8, '', ''),
-(299, 'Indigency', '2023-05-23', '05:23', 9, '', ''),
-(300, 'Indigency', '2023-05-23', '05:25', 10, '', ''),
-(301, 'Indigency', '2023-05-23', '05:25', 11, '', ''),
-(302, 'Indigency', '2023-05-23', '05:25', 12, '', ''),
-(303, 'Indigency', '2023-05-23', '05:25', 13, '', ''),
-(304, 'Indigency', '2023-05-23', '05:25', 14, '', ''),
-(305, 'Indigency', '2023-05-23', '05:25', 15, '', ''),
-(306, 'Residency', '2023-05-23', '05:25', 16, '', ''),
-(307, 'Indigency', '2023-05-23', '05:25', 17, '', ''),
-(308, 'Indigency', '2023-05-23', '05:26', 18, '', ''),
-(309, 'Indigency', '2023-05-23', '05:26', 19, '', ''),
-(310, 'Indigency', '2023-05-23', '05:26', 20, '', ''),
-(311, 'Indigency', '2023-05-23', '05:26', 21, '', ''),
-(312, 'Cedula', '2023-05-23', '05:28', 22, '', ''),
-(313, 'Cedula', '2023-05-23', '05:28', 23, '', ''),
-(314, 'Cedula', '2023-05-23', '05:28', 24, '', ''),
-(315, 'Indigency', '2023-05-23', '05:28', 25, '', ''),
-(316, 'Indigency', '2023-05-23', '05:28', 26, '', ''),
-(317, 'Indigency', '2023-05-23', '05:28', 27, '', ''),
-(318, 'Barangay ID', '2023-05-23', '06:35', 30, '', ''),
-(319, 'Barangay ID', '2023-05-23', '06:35', 31, '', ''),
-(320, 'Barangay ID', '2023-05-23', '06:36', 2, '', ''),
-(321, 'Barangay ID', '2023-05-23', '06:36', 3, '', ''),
-(322, 'Barangay ID', '2023-05-23', '06:36', 4, '', ''),
-(323, 'Barangay ID', '2023-05-23', '06:37', 5, '', ''),
-(324, 'Barangay ID', '2023-05-23', '06:37', 6, '', ''),
-(325, 'Barangay ID', '2023-05-23', '06:37', 7, '', ''),
-(326, 'Brgy.Clearance', '2023-05-23', '06:39', 8, '', ''),
-(327, 'Indigency', '2023-05-23', '06:42', 9, '', ''),
-(328, 'Indigency', '2023-05-23', '06:42', 10, '', ''),
-(329, 'Residency', '2023-05-23', '06:44', 11, '', ''),
-(330, 'Residency', '2023-05-23', '06:44', 12, '', ''),
-(331, 'Residency', '2023-05-23', '06:44', 13, '', ''),
-(332, 'Police Clearance', '2023-05-23', '06:45', 14, '', ''),
-(333, 'Police Clearance', '2023-05-23', '06:45', 15, '', ''),
-(334, 'Cedula', '2023-05-23', '06:46', 16, '', ''),
-(335, 'Indigency', '2023-05-30', '10:20', 1, '', ''),
-(336, 'Barangay ID', '2023-09-19', '07:19', 1, '', ''),
-(337, 'Brgy.Clearance', '2023-09-19', '07:20', 2, '', ''),
-(338, 'Barangay ID', '2023-09-21', '03:04', 1, '', ''),
-(339, 'Barangay ID', '2023-09-23', '08:53', 0, 'Joaquin1 Zaki1 Soriano1', 'eOaSB7'),
-(340, 'Barangay ID', '2023-09-23', '08:54', 0, 'Joaquin1 Zaki1 Soriano1', '5tORwB'),
-(341, 'Barangay ID', '2023-09-23', '08:55', 0, 'Joaquin1 Zaki1 Soriano1', 'k7tNMu'),
-(342, 'Barangay ID', '2023-09-23', '08:55', 0, 'Joaquin1 Zaki1 Soriano1', '1ZJcRE'),
-(343, 'Barangay ID', '2023-09-23', '08:56', 0, 'Joaquin Zaki Soriano', 'UPBsA5'),
-(344, 'Barangay ID', '2023-09-23', '08:57', 0, 'Joaquin Zaki Soriano', 'UPBsA5'),
-(345, 'Barangay ID', '2023-09-23', '08:57', 0, '', ''),
-(346, 'Cedula', '2023-09-23', '09:25', 0, 'Joaquin Zaki Baguna Soriano', 'TcEU1R'),
-(347, 'Cedula', '2023-09-23', '09:27', 0, '', ''),
-(348, 'Cedula', '2023-09-23', '09:27', 0, '', ''),
-(349, 'Barangay ID', '2023-09-23', '09:32', 0, 'Joaquin Zaki Baguna Soriano', 'TcEU1R'),
-(350, 'Barangay ID', '2023-09-23', '09:32', 0, '', ''),
-(351, 'Barangay Clearance', '2023-09-23', '09:32', 0, 'Joaquin Zaki Baguna Soriano', 'TcEU1R'),
-(352, 'Barangay Clearance', '2023-09-23', '09:32', 0, '', ''),
-(353, 'Barangay Clearance', '2023-09-23', '09:33', 0, '', ''),
-(354, 'Residency', '2023-09-23', '09:34', 0, 'Joaquin Zaki Baguna Soriano', 'TcEU1R'),
-(355, 'Indigency', '2023-09-23', '09:38', 0, 'Joaquin Zaki Baguna Soriano', 'TcEU1R'),
-(356, 'Police Clearance', '2023-09-23', '09:39', 0, 'Joaquin Zaki Baguna Soriano', 'TcEU1R');
+(1, 'Cedula', '2023-09-24', '07:48', 0, 'Jobelle Gani Rubia', 'XAAQ5D'),
+(2, 'Barangay ID', '2023-09-24', '07:59', 0, 'Jobelle Gani Rubia', 'XAAQ5D'),
+(3, 'Cedula', '2023-09-24', '08:22', 0, 'Mark  Dela Cruz', '3HQ9FR'),
+(4, 'Barangay ID', '2023-09-24', '08:24', 0, 'Mark  Dela Cruz', '3HQ9FR'),
+(5, 'Barangay Clearance', '2023-09-24', '08:25', 0, '', 'XAAQ5D'),
+(6, 'Barangay Clearance', '2023-09-24', '08:25', 0, 'Mark  Dela Cruz', '3HQ9FR'),
+(7, 'Cedula', '2023-10-02', '04:10', 0, 'Jobelle  Rubia', 'NAECGJ'),
+(11, 'Cedula', '2023-10-14', '04:59', 0, 'Joaquin Zaki Baguna Soriano', 'NMCY50'),
+(12, 'Cedula', '2023-10-14', '06:28', 0, 'Jobelle  Rubia', 'NAECGJ'),
+(13, 'Cedula', '2023-10-14', '06:28', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(14, 'Barangay ID', '2023-10-14', '06:43', 0, 'Jobelle  Rubia', 'NAECGJ'),
+(15, 'Barangay ID', '2023-10-14', '06:43', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(16, 'Cedula', '2023-10-14', '08:31', 0, 'Juan   Dela Cruz', 'MZEPNL'),
+(17, 'Cedula', '2023-10-14', '08:32', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(18, 'Barangay ID', '2023-10-14', '08:40', 0, 'Juan   Dela Cruz', 'MZEPNL'),
+(19, 'Barangay ID', '2023-10-14', '08:40', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(20, 'Residency', '2023-10-14', '08:40', 0, 'Juan   Dela Cruz', 'MZEPNL'),
+(21, 'Residency', '2023-10-14', '08:40', 0, '', ''),
+(22, 'Barangay Clearance', '2023-10-14', '08:41', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(23, 'Barangay Clearance', '2023-10-14', '08:41', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(24, 'Barangay Clearance', '2023-10-14', '08:41', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(25, 'Cedula', '2023-10-14', '09:01', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(26, 'Barangay ID', '2023-10-14', '09:01', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(27, 'Barangay Clearance', '2023-10-14', '09:01', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(28, 'Residency', '2023-10-14', '09:02', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(29, 'Indigency', '2023-10-14', '09:02', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(30, 'Police Clearance', '2023-10-14', '09:03', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(31, 'Cedula', '2023-10-14', '09:08', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(32, 'Cedula', '2023-10-14', '09:08', 0, 'Juan  Dela Cruz', '4V613Y'),
+(33, 'Cedula', '2023-10-14', '09:08', 0, 'Jobelle  Rubia', 'EV89FG'),
+(34, 'Barangay ID', '2023-10-14', '09:09', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(35, 'Barangay ID', '2023-10-14', '09:23', 0, 'Juan  Dela Cruz', '4V613Y'),
+(36, 'Barangay ID', '2023-10-14', '09:23', 0, 'Jobelle  Rubia', 'EV89FG'),
+(37, 'Barangay Clearance', '2023-10-14', '09:23', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(38, 'Barangay Clearance', '2023-10-14', '09:23', 0, 'Juan  Dela Cruz', '4V613Y'),
+(39, 'Barangay Clearance', '2023-10-14', '09:23', 0, 'Jobelle  Rubia', 'EV89FG'),
+(40, 'Residency', '2023-10-14', '09:23', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(41, 'Residency', '2023-10-14', '09:23', 0, 'Juan  Dela Cruz', '4V613Y'),
+(42, 'Residency', '2023-10-14', '09:24', 0, 'Jobelle  Rubia', 'EV89FG'),
+(43, 'Indigency', '2023-10-14', '09:26', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(44, 'Indigency', '2023-10-14', '09:26', 0, 'Jobelle  Rubia', 'EV89FG'),
+(45, 'Police Clearance', '2023-10-14', '09:26', 0, 'Juan  Dela Cruz', '4V613Y'),
+(46, 'Police Clearance', '2023-10-14', '09:26', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(47, 'Police Clearance', '2023-10-14', '09:26', 0, 'Jobelle  Rubia', 'EV89FG');
 
 -- --------------------------------------------------------
 
@@ -560,14 +407,6 @@ CREATE TABLE `tbl_residency` (
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_residency`
---
-
-INSERT INTO `tbl_residency` (`ID`, `DEP`, `DATE`, `TIME`, `NUMQ`, `User_id`, `user_first_name`) VALUES
-(22, '', '2023-09-23', '09:59', 0, 'DbfX3c', 'Joaquin'),
-(23, '', '2023-09-23', '09:59', 0, 'DbfX3c', 'Joaquin');
 
 -- --------------------------------------------------------
 
@@ -590,7 +429,10 @@ CREATE TABLE `tbl_resrecords` (
 --
 
 INSERT INTO `tbl_resrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `User_id`, `user_first_name`) VALUES
-(3, 'Residency', '2023-09-23', '09:34', 0, 'TcEU1R', 'Joaquin Zaki');
+(1, 'Residency', '2023-10-14', '09:02', 0, 'M20DBK', 'Joaquin Zaki'),
+(2, 'Residency', '2023-10-14', '09:23', 0, 'M20DBK', 'Joaquin Zaki'),
+(3, 'Residency', '2023-10-14', '09:23', 0, '4V613Y', 'Juan'),
+(4, 'Residency', '2023-10-14', '09:24', 0, 'EV89FG', 'Jobelle');
 
 -- --------------------------------------------------------
 
@@ -606,83 +448,18 @@ CREATE TABLE `tbl_userinformation` (
   `gender` varchar(255) NOT NULL,
   `birthplace` varchar(255) NOT NULL,
   `birthday` varchar(255) NOT NULL,
-  `queue_id` varchar(255) NOT NULL
+  `queue_id` varchar(255) NOT NULL,
+  `queue_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_userinformation`
 --
 
-INSERT INTO `tbl_userinformation` (`user_id`, `first_name`, `middle_name`, `last_name`, `gender`, `birthplace`, `birthday`, `queue_id`) VALUES
-(2, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'HaieeP'),
-(3, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'UPBsA5'),
-(4, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', '8NwvpW'),
-(5, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'DbfX3c'),
-(6, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(7, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'GvVqgW'),
-(8, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', '4BdbqX'),
-(9, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'VPQKnZ'),
-(10, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'rXVTlA'),
-(11, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'TUwOmm'),
-(12, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'JoZoHD'),
-(13, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'JYpnSB'),
-(14, 'Joaquin', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-26', '5RvuWL'),
-(15, 'Joaquin', 'Zaki', 'Soriano', 'male', '', '2023-09-23', 'HaieeP'),
-(16, 'Joaquin', 'Zaki', 'Soriano', 'male', '', '2023-09-23', 'HaieeP'),
-(17, 'Joaquin', 'Zaki', 'Soriano', 'male', '', '2023-09-23', 'HaieeP'),
-(18, 'Joaquin', 'Zaki', 'Soriano', 'male', '', '2023-09-23', 'HaieeP'),
-(19, 'Joaquin', 'Zaki', 'Soriano', 'male', '', '2023-09-23', 'HaieeP'),
-(20, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', '8NwvpW'),
-(21, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', '8NwvpW'),
-(22, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', '8NwvpW'),
-(23, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'UPBsA5'),
-(24, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(25, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(26, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(27, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(28, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(29, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(30, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(31, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(32, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(33, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(34, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'PVuEK7'),
-(35, 'Joaquin1', 'Zaki1', 'Soriano1', 'male', 'Qc', '2023-09-22', 'eOaSB7'),
-(36, 'Joaquin1', 'Zaki1', 'Soriano1', 'male', 'Qc', '2023-09-22', '5tORwB'),
-(37, 'Joaquin1', 'Zaki1', 'Soriano1', 'male', 'Qc', '2023-09-22', 'k7tNMu'),
-(38, 'Joaquin1', 'Zaki1', 'Soriano1', 'male', 'Qc', '2023-09-22', '1ZJcRE'),
-(39, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'UPBsA5'),
-(40, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'UPBsA5'),
-(41, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'VPQKnZ'),
-(42, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'VPQKnZ'),
-(43, 'Joaquin Zaki', 'Baguna', 'Soriano', 'male', 'Quezon City', '2001-05-21', 'TcEU1R'),
-(44, 'Joaquin Zaki', 'Test', 'Soriano', 'male', 'Qc', '2023-09-23', 'KFkZEw'),
-(45, 'Joaquin Zaki', 'Test', 'Soriano', 'male', 'Qc', '2023-09-23', 'pp6Ph2'),
-(46, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'DbfX3c'),
-(47, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'DbfX3c'),
-(48, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'DbfX3c'),
-(49, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'DbfX3c'),
-(50, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'DbfX3c'),
-(51, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'DbfX3c'),
-(52, 'Joaquin Zaki', 'Baguna', 'Soriano', 'male', 'Quezon City', '2001-05-21', 'TcEU1R'),
-(53, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'JoZoHD'),
-(54, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'JoZoHD'),
-(55, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'JoZoHD'),
-(56, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'JoZoHD'),
-(57, 'Joaquin', 'Zaki', 'Soriano', 'male', 'Qc', '2023-09-23', 'JoZoHD'),
-(58, 'Joaquin', 'Baguna', 'Soriano', 'female', 'Qc', '2023-09-11', '1jFmKV'),
-(59, 'Joaquin1111', 'Zaki', 'Soriano', 'male', '111111111', '2023-09-22', 'n5gtST'),
-(60, 'Joaquin1111', 'Zaki', 'Soriano', 'male', '111111111', '2023-09-22', 'P0SWtp'),
-(61, 'Joaquin22222222', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-18', 'haES9b'),
-(62, 'Joaquin33333', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-22', 'wZArZT'),
-(63, 'Joaquin33333', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-22', 'YL7tjo'),
-(64, 'Joaquin33333', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-22', 'HfIdga'),
-(65, 'Joaquin4444444444', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-19', 'UZIdQi'),
-(66, 'Joaquin4444444444', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-19', 'io2Un5'),
-(67, 'Joaquin55555555', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-28', 'Ab21Mi'),
-(68, 'Joaquin666666666', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-21', 'vTMHzi'),
-(69, 'Joaquin666666666', 'Zaki', 'Soriano', 'female', 'Qc', '2023-09-21', 'vTCCow'),
-(70, 'Joaquin77777777', 'Zaki', 'Soriano', 'female', '1', '2023-09-26', 'Kp5Uq3');
+INSERT INTO `tbl_userinformation` (`user_id`, `first_name`, `middle_name`, `last_name`, `gender`, `birthplace`, `birthday`, `queue_id`, `queue_status`) VALUES
+(1, 'Joaquin Zaki', 'Baguna', 'Soriano', 'male', 'Quezon City', '2023-10-20', 'M20DBK', ''),
+(2, 'Juan', '', 'Dela Cruz', 'male', 'Pasig City', '2023-10-17', '4V613Y', ''),
+(3, 'Jobelle', '', 'Rubia', 'female', 'Pasig City', '2023-10-25', 'EV89FG', '');
 
 --
 -- Indexes for dumped tables
@@ -698,7 +475,8 @@ ALTER TABLE `db_num`
 -- Indexes for table `docu_table`
 --
 ALTER TABLE `docu_table`
-  ADD PRIMARY KEY (`docu_table_id`);
+  ADD PRIMARY KEY (`docu_table_id`),
+  ADD UNIQUE KEY `Users_ID` (`user_id`);
 
 --
 -- Indexes for table `tbl_brgyid`
@@ -804,13 +582,13 @@ ALTER TABLE `db_num`
 -- AUTO_INCREMENT for table `docu_table`
 --
 ALTER TABLE `docu_table`
-  MODIFY `docu_table_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `docu_table_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT for table `tbl_brgyid`
 --
 ALTER TABLE `tbl_brgyid`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_cedrecords`
@@ -822,37 +600,37 @@ ALTER TABLE `tbl_cedrecords`
 -- AUTO_INCREMENT for table `tbl_cedula`
 --
 ALTER TABLE `tbl_cedula`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_clearance`
 --
 ALTER TABLE `tbl_clearance`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_clrrecords`
 --
 ALTER TABLE `tbl_clrrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_idrecords`
 --
 ALTER TABLE `tbl_idrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=338;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_indigency`
 --
 ALTER TABLE `tbl_indigency`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_indrecords`
 --
 ALTER TABLE `tbl_indrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_login`
@@ -864,37 +642,37 @@ ALTER TABLE `tbl_login`
 -- AUTO_INCREMENT for table `tbl_pcrecords`
 --
 ALTER TABLE `tbl_pcrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_policeclr`
 --
 ALTER TABLE `tbl_policeclr`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_records`
 --
 ALTER TABLE `tbl_records`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=357;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tbl_residency`
 --
 ALTER TABLE `tbl_residency`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_resrecords`
 --
 ALTER TABLE `tbl_resrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_userinformation`
 --
 ALTER TABLE `tbl_userinformation`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
