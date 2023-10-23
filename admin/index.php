@@ -1,18 +1,15 @@
 <?php
 include "../process.php";
-include "validation.php";    
+include "validation.php";
 
 $date = date('Y-m-d');
 
 // echo '<pre>';
 // var_dump($date);
 // echo '<pre>';
-			
 
 $sql = "SELECT * FROM tbl_records where DATE = '$date'";
 $result = mysqli_query($conn, $sql);
-
-
 
 ?>
 
@@ -74,8 +71,8 @@ $result = mysqli_query($conn, $sql);
                                 <a href="resrec.php">Residency</a>
                                 <a href="clrrec.php">Clearance</a>
                                 <a href="indrec.php">Indigency</a>
-                                <a href="pcrec.php">Police Clearance</a>
-                                <a href="cedrec.php">Cedula</a>
+                                <a href="pcrec.php">Business Clearance</a>
+                                <a href="cedrec.php">Building Clearance</a>
                             </li>
                         </ul>
                     </li>
@@ -84,13 +81,13 @@ $result = mysqli_query($conn, $sql);
                     </li>
                     <li>
                         <a href="records.php">Records</a>
-                        
+
                     </li>
                     <li>
                         <a href="../departments/frontdesk/active-queue.php">Active Queue</a>
-                        
+
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -133,7 +130,7 @@ $result = mysqli_query($conn, $sql);
                 </div> -->
                 <div class="row">
                     <div class="col-md-12">
-                        
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Records for Today
@@ -151,14 +148,14 @@ $result = mysqli_query($conn, $sql);
                                         </thead>
                                         <tbody>
                                         <?php
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                        ?>
+while ($row = mysqli_fetch_assoc($result)) {
+    ?>
                                             <tr>
                                                 <td><?php echo $row['Department']; ?></td>
                                                 <td><?php echo $row['TIME']; ?></td>
                                                 <td><?php echo $row['fullname']; ?></td>
                                             </tr>
-		                                <?php } ?>
+		                                <?php }?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -167,7 +164,7 @@ $result = mysqli_query($conn, $sql);
                         <!-- End  Hover Rows  -->
                     </div>
                 </div>
-                
+
 
             </div>
         </div>
@@ -181,7 +178,7 @@ $result = mysqli_query($conn, $sql);
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/jquery.metisMenu.js"></script>
     <script src="../assets/js/custom.js"></script>
-    
+
 
 
 </body>

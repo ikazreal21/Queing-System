@@ -23,12 +23,12 @@ $result = mysqli_query($conn, $sql);
 			border-bottom: 1px solid #ddd;
 		}
 		th {
-			background-color: #c31432;
+			background-color: #0435f7;
 			color: white;
 		}
 		button {
 			margin-top: 20px;
-			background-color: #c31432;
+			background-color: #0435f7;
 			color: white;
 			border: none;
 			padding: 10px;

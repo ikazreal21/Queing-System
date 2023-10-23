@@ -1,19 +1,15 @@
 <?php
 include "../process.php";
-include "validation.php";    
-
+include "validation.php";
 
 // $date = date('Y-m-d');
 
 // echo '<pre>';
 // var_dump($date);
 // echo '<pre>';
-			
 
 $sql = "SELECT * FROM tbl_records order by DATE desc";
 $result = mysqli_query($conn, $sql);
-
-
 
 ?>
 
@@ -69,28 +65,28 @@ $result = mysqli_query($conn, $sql);
                     </li>
                     <li>
                         <a href="#">Department Queuing Status<span class="fa arrow"></span></a>
-                         <ul class="nav nav-second-level">
+                        <ul class="nav nav-second-level">
                             <li>
-                                <a href="../departments/brgy_id/">Barangay ID</a>
-                                <a href="../departments/residency/">Residency</a>
-                                <a href="../departments/clearance/">Clearance</a>
-                                <a href="../departments/indigency/">Indigency</a>
-                                <a href="../departments/police_clearance/">Police Clearance</a>
-                                <a href="../departments/cedula/">Cedula</a>
+                                <a href="brgyclrec.php">Barangay ID</a>
+                                <a href="resrec.php">Residency</a>
+                                <a href="clrrec.php">Clearance</a>
+                                <a href="indrec.php">Indigency</a>
+                                <a href="pcrec.php">Business Clearance</a>
+                                <a href="cedrec.php">Building Clearance</a>
                             </li>
                         </ul>
                     </li>
 					<li>
                         <a href="../departments/frontdesk/">Front Desk</a>
-                        
+
                     </li>
                     <li>
                         <a href="records.php">Records</a>
-                        
+
                     </li>
                     <li>
                         <a href="../departments/frontdesk/active-queue.php">Active Queue</a>
-                        
+
                     </li>
                 </ul>
 
@@ -127,15 +123,15 @@ $result = mysqli_query($conn, $sql);
                                         </thead>
                                         <tbody>
                                         <?php
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                        ?>
+while ($row = mysqli_fetch_assoc($result)) {
+    ?>
                                             <tr>
                                                 <td><?php echo $row['Department']; ?></td>
                                                 <td><?php echo date('M d, Y', strtotime($row['DATE'])); ?></td>
                                                 <td><?php echo $row['TIME']; ?></td>
                                                 <td><?php echo $row['fullname']; ?></td>
                                             </tr>
-		                                <?php } ?>
+		                                <?php }?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -144,7 +140,7 @@ $result = mysqli_query($conn, $sql);
                         <!-- End  Hover Rows  -->
                     </div>
                 </div>
-                
+
 
             </div>
         </div>
@@ -158,7 +154,7 @@ $result = mysqli_query($conn, $sql);
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/jquery.metisMenu.js"></script>
     <script src="../assets/js/custom.js"></script>
-    
+
 
 
 </body>

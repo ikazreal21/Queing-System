@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2023 at 07:05 AM
+-- Generation Time: Oct 23, 2023 at 07:21 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -92,7 +92,9 @@ CREATE TABLE `docu_table` (
 
 INSERT INTO `docu_table` (`docu_table_id`, `user_id`, `cedula`, `brgy_id`, `brgy_clearance`, `indigency`, `recidency`, `police_clearance`, `user_queue_number`) VALUES
 (80, '3HQ9FR', '1', '1', '1', '', '1', '', '2'),
-(135, 'CJKGD0', '0', '0', '0', '1', '1', '1', '3');
+(135, 'CJKGD0', '0', '0', '0', '1', '1', '1', '3'),
+(145, 'M20DBK', '0', '1', '1', '1', '1', '1', '3'),
+(147, 'Z4WOHJ', '0', '1', '1', '1', '1', '1', '4');
 
 -- --------------------------------------------------------
 
@@ -109,6 +111,15 @@ CREATE TABLE `tbl_brgyid` (
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_brgyid`
+--
+
+INSERT INTO `tbl_brgyid` (`ID`, `DEP`, `DATE`, `TIME`, `NUMQ`, `User_id`, `user_first_name`) VALUES
+(5, '', '2023-10-22', '12:06', 0, 'M20DBK', 'Joaquin Zaki'),
+(6, '', '2023-10-23', '11:40', 0, 'M20DBK', 'Joaquin Zaki'),
+(7, '', '2023-10-23', '11:40', 0, 'Z4WOHJ', 'Mark');
 
 -- --------------------------------------------------------
 
@@ -134,7 +145,10 @@ INSERT INTO `tbl_cedrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `Use
 (1, 'Cedula', '2023-10-14', '09:01', 0, 'M20DBK', 'Joaquin Zaki'),
 (2, 'Cedula', '2023-10-14', '09:08', 0, 'M20DBK', 'Joaquin Zaki'),
 (3, 'Cedula', '2023-10-14', '09:08', 0, '4V613Y', 'Juan'),
-(4, 'Cedula', '2023-10-14', '09:08', 0, 'EV89FG', 'Jobelle');
+(4, 'Cedula', '2023-10-14', '09:08', 0, 'EV89FG', 'Jobelle'),
+(5, 'Cedula', '2023-10-22', '12:06', 0, 'M20DBK', 'Joaquin Zaki'),
+(6, 'Cedula', '2023-10-23', '11:40', 0, 'M20DBK', 'Joaquin Zaki'),
+(7, 'Cedula', '2023-10-23', '11:40', 0, 'Z4WOHJ', 'Mark');
 
 -- --------------------------------------------------------
 
@@ -305,10 +319,10 @@ CREATE TABLE `tbl_pcrecords` (
 --
 
 INSERT INTO `tbl_pcrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `User_id`, `user_first_name`) VALUES
-(1, 'Police Clearance', '2023-10-14', '09:03', 0, 'M20DBK', 'Joaquin Zaki'),
-(2, 'Police Clearance', '2023-10-14', '09:26', 0, '4V613Y', 'Juan'),
-(3, 'Police Clearance', '2023-10-14', '09:26', 0, 'M20DBK', 'Joaquin Zaki'),
-(4, 'Police Clearance', '2023-10-14', '09:26', 0, 'EV89FG', 'Jobelle');
+(1, 'Business Clearance', '2023-10-14', '09:03', 0, 'M20DBK', 'Joaquin Zaki'),
+(2, 'Business Clearance', '2023-10-14', '09:26', 0, '4V613Y', 'Juan'),
+(3, 'Business Clearance', '2023-10-14', '09:26', 0, 'M20DBK', 'Joaquin Zaki'),
+(4, 'Business Clearance', '2023-10-14', '09:26', 0, 'EV89FG', 'Jobelle');
 
 -- --------------------------------------------------------
 
@@ -347,20 +361,20 @@ CREATE TABLE `tbl_records` (
 --
 
 INSERT INTO `tbl_records` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `fullname`, `User_id`) VALUES
-(1, 'Cedula', '2023-09-24', '07:48', 0, 'Jobelle Gani Rubia', 'XAAQ5D'),
+(1, 'Building Clearance', '2023-09-24', '07:48', 0, 'Jobelle Gani Rubia', 'XAAQ5D'),
 (2, 'Barangay ID', '2023-09-24', '07:59', 0, 'Jobelle Gani Rubia', 'XAAQ5D'),
-(3, 'Cedula', '2023-09-24', '08:22', 0, 'Mark  Dela Cruz', '3HQ9FR'),
+(3, 'Building Clearance', '2023-09-24', '08:22', 0, 'Mark  Dela Cruz', '3HQ9FR'),
 (4, 'Barangay ID', '2023-09-24', '08:24', 0, 'Mark  Dela Cruz', '3HQ9FR'),
 (5, 'Barangay Clearance', '2023-09-24', '08:25', 0, '', 'XAAQ5D'),
 (6, 'Barangay Clearance', '2023-09-24', '08:25', 0, 'Mark  Dela Cruz', '3HQ9FR'),
-(7, 'Cedula', '2023-10-02', '04:10', 0, 'Jobelle  Rubia', 'NAECGJ'),
-(11, 'Cedula', '2023-10-14', '04:59', 0, 'Joaquin Zaki Baguna Soriano', 'NMCY50'),
-(12, 'Cedula', '2023-10-14', '06:28', 0, 'Jobelle  Rubia', 'NAECGJ'),
-(13, 'Cedula', '2023-10-14', '06:28', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(7, 'Building Clearance', '2023-10-02', '04:10', 0, 'Jobelle  Rubia', 'NAECGJ'),
+(11, 'Building Clearance', '2023-10-14', '04:59', 0, 'Joaquin Zaki Baguna Soriano', 'NMCY50'),
+(12, 'Building Clearance', '2023-10-14', '06:28', 0, 'Jobelle  Rubia', 'NAECGJ'),
+(13, 'Building Clearance', '2023-10-14', '06:28', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
 (14, 'Barangay ID', '2023-10-14', '06:43', 0, 'Jobelle  Rubia', 'NAECGJ'),
 (15, 'Barangay ID', '2023-10-14', '06:43', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
-(16, 'Cedula', '2023-10-14', '08:31', 0, 'Juan   Dela Cruz', 'MZEPNL'),
-(17, 'Cedula', '2023-10-14', '08:32', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
+(16, 'Building Clearance', '2023-10-14', '08:31', 0, 'Juan   Dela Cruz', 'MZEPNL'),
+(17, 'Building Clearance', '2023-10-14', '08:32', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
 (18, 'Barangay ID', '2023-10-14', '08:40', 0, 'Juan   Dela Cruz', 'MZEPNL'),
 (19, 'Barangay ID', '2023-10-14', '08:40', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
 (20, 'Residency', '2023-10-14', '08:40', 0, 'Juan   Dela Cruz', 'MZEPNL'),
@@ -368,15 +382,15 @@ INSERT INTO `tbl_records` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `fullna
 (22, 'Barangay Clearance', '2023-10-14', '08:41', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
 (23, 'Barangay Clearance', '2023-10-14', '08:41', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
 (24, 'Barangay Clearance', '2023-10-14', '08:41', 0, 'Joaquin Zaki Baguna Soriano', 'CJKGD0'),
-(25, 'Cedula', '2023-10-14', '09:01', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(25, 'Building Clearance', '2023-10-14', '09:01', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
 (26, 'Barangay ID', '2023-10-14', '09:01', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
 (27, 'Barangay Clearance', '2023-10-14', '09:01', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
 (28, 'Residency', '2023-10-14', '09:02', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
 (29, 'Indigency', '2023-10-14', '09:02', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
-(30, 'Police Clearance', '2023-10-14', '09:03', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
-(31, 'Cedula', '2023-10-14', '09:08', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
-(32, 'Cedula', '2023-10-14', '09:08', 0, 'Juan  Dela Cruz', '4V613Y'),
-(33, 'Cedula', '2023-10-14', '09:08', 0, 'Jobelle  Rubia', 'EV89FG'),
+(30, 'Business Clearance', '2023-10-14', '09:03', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(31, 'Building Clearance', '2023-10-14', '09:08', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(32, 'Building Clearance', '2023-10-14', '09:08', 0, 'Juan  Dela Cruz', '4V613Y'),
+(33, 'Building Clearance', '2023-10-14', '09:08', 0, 'Jobelle  Rubia', 'EV89FG'),
 (34, 'Barangay ID', '2023-10-14', '09:09', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
 (35, 'Barangay ID', '2023-10-14', '09:23', 0, 'Juan  Dela Cruz', '4V613Y'),
 (36, 'Barangay ID', '2023-10-14', '09:23', 0, 'Jobelle  Rubia', 'EV89FG'),
@@ -388,9 +402,12 @@ INSERT INTO `tbl_records` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `fullna
 (42, 'Residency', '2023-10-14', '09:24', 0, 'Jobelle  Rubia', 'EV89FG'),
 (43, 'Indigency', '2023-10-14', '09:26', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
 (44, 'Indigency', '2023-10-14', '09:26', 0, 'Jobelle  Rubia', 'EV89FG'),
-(45, 'Police Clearance', '2023-10-14', '09:26', 0, 'Juan  Dela Cruz', '4V613Y'),
-(46, 'Police Clearance', '2023-10-14', '09:26', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
-(47, 'Police Clearance', '2023-10-14', '09:26', 0, 'Jobelle  Rubia', 'EV89FG');
+(45, 'Business Clearance', '2023-10-14', '09:26', 0, 'Juan  Dela Cruz', '4V613Y'),
+(46, 'Business Clearance', '2023-10-14', '09:26', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(47, 'Business Clearance', '2023-10-14', '09:26', 0, 'Jobelle  Rubia', 'EV89FG'),
+(48, 'Building Clearance', '2023-10-22', '12:06', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(49, 'Building Clearance', '2023-10-23', '11:40', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(50, 'Building Clearance', '2023-10-23', '11:40', 0, 'Mark  Dela Cruz', 'Z4WOHJ');
 
 -- --------------------------------------------------------
 
@@ -459,7 +476,8 @@ CREATE TABLE `tbl_userinformation` (
 INSERT INTO `tbl_userinformation` (`user_id`, `first_name`, `middle_name`, `last_name`, `gender`, `birthplace`, `birthday`, `queue_id`, `queue_status`) VALUES
 (1, 'Joaquin Zaki', 'Baguna', 'Soriano', 'male', 'Quezon City', '2023-10-20', 'M20DBK', ''),
 (2, 'Juan', '', 'Dela Cruz', 'male', 'Pasig City', '2023-10-17', '4V613Y', ''),
-(3, 'Jobelle', '', 'Rubia', 'female', 'Pasig City', '2023-10-25', 'EV89FG', '');
+(3, 'Jobelle', '', 'Rubia', 'female', 'Pasig City', '2023-10-25', 'EV89FG', ''),
+(4, 'Mark', '', 'Dela Cruz', 'male', 'Quezon City', '2001-06-13', 'Z4WOHJ', '');
 
 --
 -- Indexes for dumped tables
@@ -582,25 +600,25 @@ ALTER TABLE `db_num`
 -- AUTO_INCREMENT for table `docu_table`
 --
 ALTER TABLE `docu_table`
-  MODIFY `docu_table_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `docu_table_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT for table `tbl_brgyid`
 --
 ALTER TABLE `tbl_brgyid`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_cedrecords`
 --
 ALTER TABLE `tbl_cedrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_cedula`
 --
 ALTER TABLE `tbl_cedula`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_clearance`
@@ -654,7 +672,7 @@ ALTER TABLE `tbl_policeclr`
 -- AUTO_INCREMENT for table `tbl_records`
 --
 ALTER TABLE `tbl_records`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `tbl_residency`
@@ -672,7 +690,7 @@ ALTER TABLE `tbl_resrecords`
 -- AUTO_INCREMENT for table `tbl_userinformation`
 --
 ALTER TABLE `tbl_userinformation`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

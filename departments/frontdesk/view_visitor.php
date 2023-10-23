@@ -1,7 +1,7 @@
 <?php
 include "../../process.php";
-include "../../admin/validation.php";    
-include "../../function.php";    
+include "../../admin/validation.php";
+include "../../function.php";
 
 require "../../vendor/autoload.php";
 
@@ -10,22 +10,22 @@ require "../../vendor/autoload.php";
 
 $id = $_GET['id'] ?? '';
 
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     $link = "https";
-else
+} else {
     $link = "http";
-     
+}
+
 $link .= "://";
-     
+
 $link .= $_SERVER['SERVER_ADDR'];
 // $link .= $_SERVER['PHP_SELF'];
-     
+
 $link .= "/QueingSystem/system/current_queue.php?id=";
-     
+
 // echo '<pre>';
 // var_dump($ip);
 // echo '<pre>';
-
 
 // echo '<pre>';
 // var_dump($ip1);
@@ -38,21 +38,18 @@ $link .= "/QueingSystem/system/current_queue.php?id=";
 $date = date('Y-m-d');
 $time = date('h:i');
 
-
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 
-
-$qr_code = QrCode::create($link.$id)
-                 ->setSize(220)
-                 ->setMargin(0);
+$qr_code = QrCode::create($link . $id)
+    ->setSize(220)
+    ->setMargin(0);
 
 $writer = new PngWriter;
 
 $result = $writer->write($qr_code);
 
-$result->saveToFile("image/".$id.".png");
-
+$result->saveToFile("image/" . $id . ".png");
 
 $sql = "SELECT * FROM tbl_userinformation where queue_id = '$id'";
 $result = mysqli_query($conn, $sql);
@@ -73,7 +70,6 @@ if ($next2) {
     $insert = true;
 
 }
- 
 
 if ($docu) {
     $queue_number = $docu->num_rows + 1;
@@ -83,12 +79,10 @@ if ($docu) {
 } else {
     $queue_number = 1;
 }
- 
 
 // echo '<pre>';
 // var_dump($todays_queue->num_rows);
 // echo '<pre>';
-
 
 while ($row = mysqli_fetch_assoc($result)) {
     $firstname = $row['first_name'];
@@ -100,12 +94,12 @@ while ($row = mysqli_fetch_assoc($result)) {
     $user_id_and_queue_id = $row['queue_id'];
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        // echo '<pre>';
-        // var_dump($_POST);
-        // echo '<pre>';
-    
+    // echo '<pre>';
+    // var_dump($_POST);
+    // echo '<pre>';
+
     while ($row = mysqli_fetch_assoc($result)) {
         $firstname = $row['firstname'];
         $middlename = $row['middle_name '];
@@ -116,24 +110,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_id_and_queue_id = $row['queue_id'];
     }
 
-    $brgy_id =  isset($_POST['brgyid']);
-    $cedula =  isset($_POST['cedula']);
-    $recidency =  isset($_POST['residency']);
+    $brgy_id = isset($_POST['brgyid']);
+    $cedula = isset($_POST['cedula']);
+    $recidency = isset($_POST['residency']);
     $brgy_clearance = isset($_POST['clearance']);
-    $indigency =  isset($_POST['indigency']);
-    $police_clearance =  isset($_POST['pc']);
-
+    $indigency = isset($_POST['indigency']);
+    $police_clearance = isset($_POST['pc']);
 
     // $sql = "INSERT INTO tbl_userinformation(first_name, middle_name, last_name, gender, birthplace, birthday, queue_id) VALUES ('$firstname','$middlename','$lastname','$gender','$birthplace','$birthdate','$user_id_and_queue_id')";
-    // $insert = $conn->query($sql);   
+    // $insert = $conn->query($sql);
 
     $sql = "INSERT INTO docu_table(user_id, cedula, brgy_id, brgy_clearance, indigency, recidency, police_clearance, user_queue_number) VALUES ('$user_id_and_queue_id','$cedula','$brgy_id','$brgy_clearance','$indigency','$recidency','$police_clearance','$queue_number')";
-    $insert = $conn->query($sql);  
+    $insert = $conn->query($sql);
 
     //   echo '<pre>';
     // var_dump($id_queue);
     // echo '<pre>';
-
 
     if ($insert) {
         if ($brgy_id) {
@@ -165,11 +157,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql = "INSERT INTO tbl_policeclr(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
             $insert = $conn->query($sql);
         }
-        header("location:view_visitor.php?id=".$id);
+        header("location:view_visitor.php?id=" . $id);
     }
 }
-			
-
 
 ?>
 
@@ -231,8 +221,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <a href="../../admin/resrec.php">Residency</a>
                                 <a href="../../admin/clrrec.php">Clearance</a>
                                 <a href="../../admin/indrec.php">Indigency</a>
-                                <a href="../../admin/pcrec.php">Police Clearance</a>
-                                <a href="../../admin/cedrec.php">Cedula</a>
+                                <a href="../../admin/pcrec.php">Business Clearance</a>
+                                <a href="../../admin/cedrec.php">Building Clearance</a>
                             </li>
                         </ul>
                     </li>
@@ -246,13 +236,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </li>
                     <li>
                         <a href="../../admin/records.php">Records</a>
-                        
+
                     </li>
                     <li>
                         <a href="active-queue.php">Active Queue</a>
-                        
+
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -275,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="panel panel-b">
                         <div class="panel-body">
                             <form role="form" method="post">
-                                <div class="row"> 
+                                <div class="row">
                                     <div class="form-group col-md-4">
                                         <label>First Name</label>
                                         <input class="form-control" name="first_name" value="<?php echo $firstname; ?>" type="text" required disabled>
@@ -288,7 +278,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <label>Last Name</label>
                                         <input class="form-control" name="last_name" value="<?php echo $lastname; ?>" type="text" required disabled>
                                     </div>
-                                </div>  
+                                </div>
                                 <div class="row">
                                     <div class="form-group col-md-4">
                                         <label>Birth Place</label>
@@ -316,7 +306,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="cedula" value="True">Cedula
+                                            <input type="checkbox" name="cedula" value="True">Building Clearance
                                         </label>
                                     </div>
                                     <div class="checkbox">
@@ -336,7 +326,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="pc" value="True">Police Clearance
+                                            <input type="checkbox" name="pc" value="True">Business Clearance
                                         </label>
                                     </div>
                                 </div>
@@ -346,7 +336,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <button type="submit" onclick="printContent();" class="btn btn-info">Print Queue Reciept </button>
                                         <iframe id="myiframe" src="../../receipt.php?id=<?php echo $id; ?>" style="display:none;"></iframe>
                                         <a href="cancel_queue.php?id=<?php echo $id; ?>" class="btn btn-danger btn-wd">Cancel Queue</a>
-                                <?php endif; ?>
+                                <?php endif;?>
                             </form>
                         </div>
                     </div>
@@ -364,7 +354,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/jquery.metisMenu.js"></script>
     <script src="../../assets/js/custom.js"></script>
-    
+
 
 
 </body>

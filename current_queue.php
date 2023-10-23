@@ -144,7 +144,7 @@ if ($docu_table->num_rows != 0) {
     
         if ($police_clear->num_rows != 0) {
             $position = array_search($id, $police_clear_arr);
-            $document = 'Police Clearance';
+            $document = 'Business Clearance';
     
         }
     }
@@ -222,7 +222,7 @@ if ($docu_table->num_rows != 0) {
 
     // if ($police_clear->num_rows != 0) {
     //     $position = array_search($id, $police_clear_arr);
-    //     $document = 'Police Clearance';
+    //     $document = 'Business Clearance';
 
     // }
 
@@ -298,7 +298,7 @@ header("Refresh:2");
                                 <a href="../../departments/residency/">Residency</a>
                                 <a href="../../departments/clearance/">Clearance</a>
                                 <a href="../../departments/indigency/">Indigency</a>
-                                <a href="../../departments/police_clearance/">Police Clearance</a>
+                                <a href="../../departments/police_clearance/">Business Clearance</a>
                                 <a href="../../departments/cedula/">Cedula</a>
                             </li>
                         </ul>
@@ -312,7 +312,7 @@ header("Refresh:2");
                                 <a href="../../departments/residency/">Residency</a>
                                 <a href="../../departments/clearance/">Clearance</a>
                                 <a href="../../departments/indigency/">Indigency</a>
-                                <a href="../../departments/police_clearance/">Police Clearance</a>
+                                <a href="../../departments/police_clearance/">Business Clearance</a>
                                 <a href="../../departments/cedula/">Cedula</a>
                             </li>
                         </ul>

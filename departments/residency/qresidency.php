@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         tr:nth-child(even){background-color: #f2f2f2}
 
         th {
-            background-color: #c31432;
+            background-color: #0435f7;
             color: white;
         }
 
         button {
-            background-color: #c31432;
+            background-color: #0435f7;
             color: white;
             padding: 8px 16px;
             text-align: center;

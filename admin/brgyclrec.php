@@ -23,12 +23,12 @@ $result = mysqli_query($conn, $sql);
 			border-bottom: 1px solid #ddd;
 		}
 		th {
-			background-color: #c31432;
+			background-color: #0435f7;
 			color: white;
 		}
 		button {
 			margin-top: 20px;
-			background-color: #c31432;
+			background-color: #0435f7;
 			color: white;
 			border: none;
 			padding: 10px;
@@ -57,8 +57,8 @@ $result = mysqli_query($conn, $sql);
 			<th>User ID</th>
 		</tr>
 		<?php
-		while($row = mysqli_fetch_assoc($result)) {
-		?>
+while ($row = mysqli_fetch_assoc($result)) {
+    ?>
 		<tr>
 			<td><?php echo $row['ID']; ?></td>
 			<td><?php echo date('M d, Y', strtotime($row['DATE'])); ?></td>
@@ -66,7 +66,7 @@ $result = mysqli_query($conn, $sql);
 			<td><?php echo $row['user_first_name']; ?></td>
 			<td><?php echo $row['User_id']; ?></td>
 		</tr>
-		<?php } ?>
+		<?php }?>
 	</table>
 	<button type="button"><a href="index.php">Back</a></button>
 </body>

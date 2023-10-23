@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Cedula</a>
+                <a class="navbar-brand" href="">Building Clearance</a>
             </div>
 
             <div class="header-right">
@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <a class="active-menu" href="index.php"><i class="fa fa-user "></i>Active Queue</a>
                     </li>
                     <li>
-                        <a href="cedrec.php">Cedula Records</a>
+                        <a href="cedrec.php">Building Clearance Records</a>
                     </li>
                 </ul>
 
@@ -168,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div id="page-inner" class="bg-image">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Cedula</h1>
+                        <h1 class="page-head-line">Building Clearance</h1>
                     </div>
                 </div>
                 <div class="row text-center pad-row">

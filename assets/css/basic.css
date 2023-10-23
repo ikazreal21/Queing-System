@@ -5,7 +5,7 @@ body {
 
 #wrapper {
     width: 100%;
-    background: #3C0C35;
+    background: #1F1153;
 }
 
 #page-wrapper {
@@ -31,7 +31,7 @@ body {
     color: #000;
     font-weight: 800;
     padding-bottom: 20px;
-    border-bottom: 2px solid linear-gradient(to right, #240b36, #c31432);
+    border-bottom: 2px solid linear-gradient(to right, #1F1153, #0435f7);
     margin-bottom: 10px;
 }
 
@@ -41,7 +41,7 @@ body {
     padding-bottom: 20px;
     font-style:italic;
     margin-bottom:30px;
-    border-bottom:1px dashed linear-gradient(to right, #240b36, #c31432);
+    border-bottom:1px dashed linear-gradient(to right, #1F1153, #0435f7);
 
 }
 
@@ -53,7 +53,7 @@ body {
 
 .navbar-cls-top .navbar-brand {
     color: #fff;
-    background: #3C0C35;
+    background: #1F1153;
     width: 260px;
     text-align: center;
     height: 75px;
@@ -72,7 +72,7 @@ body {
 }
 
 .navbar-cls-top .navbar-brand:hover {
-    background: #3C0C35;
+    background: #1F1153;
     color: #fff;
 }
 
@@ -95,7 +95,7 @@ body {
     }
 
 .active-menu {
-    background-color: linear-gradient(to right, #240b36, #c31432)!important;
+    background-color: linear-gradient(to right, #1F1153, #0435f7)!important;
 }
 .active-menu-top {
     background-color: #000!important;
@@ -137,7 +137,7 @@ body {
 
         .sidebar-collapse .nav > li > a {
             color: #fff;
-            background: #3C0C35;
+            background: #1F1153;
             text-shadow: none;
             padding: 15px 40px;
             border-bottom: 1px solid #2F2E31;
@@ -167,11 +167,11 @@ body {
 
 .navbar-side {
     border: none;
-    background-color: #3C0C35;
+    background-color: #1F1153;
 }
 
 .navbar-cls-top {
-    background: linear-gradient(to right, #240b36, #c31432);
+    background: linear-gradient(to right, #1F1153, #0435f7);
     border-bottom: none;
 }
 
@@ -185,7 +185,7 @@ body {
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: linear-gradient(to right, #240b36, #c31432);
+    background-color: linear-gradient(to right, #1F1153, #0435f7);
 }
 
 .navbar-default .navbar-toggle {

@@ -2,10 +2,8 @@
 session_start();
 
 include "process.php";
- 
+
 date_default_timezone_set('Asia/Manila');
-
-
 
 $currentNumber = 0;
 
@@ -21,85 +19,78 @@ if ($currentNumber > 30) {
 
 // Save the updated number to the session
 
-
 $dede = "";
 $d = date('Y-m-d');
 $t = date('h:i');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-	if (!isset($_POST['count'])) {
-	$dede = "";
-	$d = date('Y-m-d');
-	$t = date('h:i');
-	
-} 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!isset($_POST['count'])) {
+        $dede = "";
+        $d = date('Y-m-d');
+        $t = date('h:i');
 
+    }
 
+    if (isset($_POST['increment'])) {
 
+        $currentNumber++;
+        $_SESSION['currentNumber'] = $currentNumber;
 
-if (isset($_POST['increment'])) {
+        $dede = $_POST['dept'];
+        $d = date('Y-m-d');
+        $t = date('h:i');
 
-	$currentNumber++;
-	$_SESSION['currentNumber'] = $currentNumber;
-	
-	$dede = $_POST['dept'];
-	$d = date('Y-m-d');
-	$t = date('h:i');
-	
-	
-	if ($dede == "Barangay ID"){
-		$sql = "INSERT INTO tbl_brgyid(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert = $conn->query($sql);
-			$sql1 = "INSERT INTO tbl_idrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert1 = $conn->query($sql1);
-	}
-	
-	if ($dede == "Brgy.Clearance"){
-		$sql = "INSERT INTO tbl_clearance(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert = $conn->query($sql);
-		$sql1 = "INSERT INTO tbl_clrrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert1 = $conn->query($sql1);
-	}
-	
-	if ($dede == "Indigency"){
-		$sql = "INSERT INTO tbl_indigency(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert = $conn->query($sql);
-		$sql1 = "INSERT INTO tbl_indrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert1 = $conn->query($sql1);
-	}
-	
-	if ($dede == "Residency"){
-		$sql = "INSERT INTO tbl_residency(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert = $conn->query($sql);
-		$sql1 = "INSERT INTO tbl_resrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert1 = $conn->query($sql1);
-		
-	}
-	
-	if ($dede == "Police Clearance"){
-		$sql = "INSERT INTO tbl_policeclr(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert = $conn->query($sql);
-		$sql1 = "INSERT INTO tbl_pcrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert1 = $conn->query($sql1);
-	}
-	
-	if ($dede == "Cedula"){
-		$sql = "INSERT INTO tbl_cedula(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert = $conn->query($sql);
-		$sql1 = "INSERT INTO tbl_cedrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
-		$insert1 = $conn->query($sql1);
-	}
-		
-}
+        if ($dede == "Barangay ID") {
+            $sql = "INSERT INTO tbl_brgyid(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert = $conn->query($sql);
+            $sql1 = "INSERT INTO tbl_idrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert1 = $conn->query($sql1);
+        }
 
-$sql = "INSERT INTO tbl_records(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
+        if ($dede == "Brgy.Clearance") {
+            $sql = "INSERT INTO tbl_clearance(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert = $conn->query($sql);
+            $sql1 = "INSERT INTO tbl_clrrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert1 = $conn->query($sql1);
+        }
 
-$insert = $conn->query($sql);
+        if ($dede == "Indigency") {
+            $sql = "INSERT INTO tbl_indigency(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert = $conn->query($sql);
+            $sql1 = "INSERT INTO tbl_indrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert1 = $conn->query($sql1);
+        }
 
+        if ($dede == "Residency") {
+            $sql = "INSERT INTO tbl_residency(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert = $conn->query($sql);
+            $sql1 = "INSERT INTO tbl_resrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert1 = $conn->query($sql1);
 
-if($insert == TRUE)
-{
-?>
+        }
+
+        if ($dede == "Business Clearance") {
+            $sql = "INSERT INTO tbl_policeclr(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert = $conn->query($sql);
+            $sql1 = "INSERT INTO tbl_pcrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert1 = $conn->query($sql1);
+        }
+
+        if ($dede == "Cedula") {
+            $sql = "INSERT INTO tbl_cedula(DEP,DATE,TIME,NUMQ) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert = $conn->query($sql);
+            $sql1 = "INSERT INTO tbl_cedrecords(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
+            $insert1 = $conn->query($sql1);
+        }
+
+    }
+
+    $sql = "INSERT INTO tbl_records(Department,DATE,TIME,NUMBER) VALUES ('$dede','$d','$t','$currentNumber')";
+
+    $insert = $conn->query($sql);
+
+    if ($insert == true) {
+        ?>
 <script>
 	alert("Successfully Added")
 </script>
@@ -133,7 +124,7 @@ if($insert == TRUE)
 			margin-bottom: 10px;
 		}
 		input[type="submit"], button {
-			background-color: #c31432;
+			background-color: #0435f7;
 			color: white;
 			padding: 10px;
 			border: none;
@@ -143,7 +134,7 @@ if($insert == TRUE)
 		}
 		input[type="submit"]:hover, button:hover {
 			background-color: #14c383;
-			
+
 		}
 		select, input[type="hidden"], p {
 			display: block;
@@ -172,7 +163,7 @@ if($insert == TRUE)
 
 
 	<form method="POST">
-	
+
 	<label>Reason of Visit</label>
 	<select name="dept" required>
 	<option value="">--Choose a Department--</option>
@@ -180,8 +171,8 @@ if($insert == TRUE)
 	<option name="Brgy.Clearance" value="Brgy.Clearance">Brgy.Clearance</option>
 	<option name="Indigency" value="Indigency">Indigency</option>
 	<option name="Residency" value="Residency">Residency</option>
-	<option name="Police Clearance" value="Police Clearance">Police Clearance</option>
-	<option name="Cedula" value="Cedula">Cedula</option>
+	<option name="Business Clearance" value="Business Clearance">Business Clearance</option>
+	<option name="Cedula" value="Cedula">Building Clearance</option>
 	</select>
 
   <label>Date: <?php echo date("Y/m/d"); ?></label>

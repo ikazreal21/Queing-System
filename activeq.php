@@ -1,14 +1,11 @@
 <?php
 include "process.php";
 
-
-			
-
 $ced = "Barangay ID";
 $ced1 = "Brgy.Clearance";
 $ced2 = "Indigency";
 $ced3 = "Residency";
-$ced4 = "Police Clearance";
+$ced4 = "Business Clearance";
 $ced5 = "Cedula";
 
 $sql = "SELECT * FROM tbl_brgyid WHERE DEP = '$ced' order by NUMQ ASC limit 1";
@@ -36,14 +33,14 @@ $result5 = mysqli_query($conn, $sql5);
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #c31432;
+        background-color: #0435f7;
         font-family: Franklin Gothic Medium;
       }
-      
+
       .menu li {
         float: left;
       }
-      
+
       .menu li a {
         display: block;
         color: white;
@@ -51,13 +48,13 @@ $result5 = mysqli_query($conn, $sql5);
         padding: 14px 16px;
         text-decoration: none;
       }
-      
+
       .menu li a:hover {
         background-color: #111;
       }
-      
+
       button {
-        background-color: #c31432;
+        background-color: #0435f7;
         border: none;
         color: white;
         padding: 10px 20px;
@@ -69,12 +66,12 @@ $result5 = mysqli_query($conn, $sql5);
         cursor: pointer;
         font-family: Franklin Gothic Medium;
       }
-      
+
       button a {
         color: white;
         text-decoration: none;
       }
-      
+
       button:hover {
         background-color: #005A6E;
       }
@@ -87,46 +84,46 @@ $result5 = mysqli_query($conn, $sql5);
     opacity: 0.05;
   }
 
-      
+
     </style>
   </head>
-  
+
   <body>
-    
+
 	<table>
       <tr>
         <th>NUMBER CURRENTLY SERVING</th>
       </tr>
-      <?php while($row = mysqli_fetch_assoc($result)) { ?>
+      <?php while ($row = mysqli_fetch_assoc($result)) {?>
         <tr>
-          <td><?php echo $row['NUMQ'] ;?></td>
+          <td><?php echo $row['NUMQ']; ?></td>
         </tr>
-      <?php } ?>
-	      <?php while($row = mysqli_fetch_assoc($result1)) { ?>
+      <?php }?>
+	      <?php while ($row = mysqli_fetch_assoc($result1)) {?>
         <tr>
-          <td><?php echo $row['NUMQ'] ;?></td>
+          <td><?php echo $row['NUMQ']; ?></td>
         </tr>
-      <?php } ?>
-	      <?php while($row = mysqli_fetch_assoc($result2)) { ?>
+      <?php }?>
+	      <?php while ($row = mysqli_fetch_assoc($result2)) {?>
         <tr>
-          <td><?php echo $row['NUMQ'] ;?></td>
+          <td><?php echo $row['NUMQ']; ?></td>
         </tr>
-      <?php } ?>
-	      <?php while($row = mysqli_fetch_assoc($result3)) { ?>
+      <?php }?>
+	      <?php while ($row = mysqli_fetch_assoc($result3)) {?>
         <tr>
-          <td><?php echo $row['NUMQ'] ;?></td>
+          <td><?php echo $row['NUMQ']; ?></td>
         </tr>
-      <?php } ?>
-	      <?php while($row = mysqli_fetch_assoc($result4)) { ?>
+      <?php }?>
+	      <?php while ($row = mysqli_fetch_assoc($result4)) {?>
         <tr>
-          <td><?php echo $row['NUMQ'] ;?></td>
+          <td><?php echo $row['NUMQ']; ?></td>
         </tr>
-      <?php } ?>
-	      <?php while($row = mysqli_fetch_assoc($result5)) { ?>
+      <?php }?>
+	      <?php while ($row = mysqli_fetch_assoc($result5)) {?>
         <tr>
-          <td><?php echo $row['NUMQ'] ;?></td>
+          <td><?php echo $row['NUMQ']; ?></td>
         </tr>
-      <?php } ?>
+      <?php }?>
     </table>
     <button type="button"><a href="LP/lp.php">Back</a></button>
     <div class="bg">

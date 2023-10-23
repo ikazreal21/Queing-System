@@ -1,7 +1,6 @@
 <?php
 include "../../process.php";
-include "../../admin/validation.php";    
-
+include "../../admin/validation.php";
 
 $date = date('Y-m-d');
 
@@ -41,7 +40,8 @@ while ($row = mysqli_fetch_assoc($cedula)) {
 if (count($cedula_arr) != 0) {
     $cedula_arr2 = $cedula_arr;
     array_shift($cedula_arr2);
-};
+}
+;
 
 $sql = "SELECT * FROM tbl_clearance brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $brgy_clear = mysqli_query($conn, $sql);
@@ -55,7 +55,8 @@ while ($row = mysqli_fetch_assoc($brgy_clear)) {
 if (count($brgy_clear_arr) != 0) {
     $brgy_clear_arr2 = $brgy_clear_arr;
     array_shift($brgy_clear_arr2);
-};
+}
+;
 
 $sql = "SELECT * FROM tbl_indigency brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $indigency = mysqli_query($conn, $sql);
@@ -69,7 +70,8 @@ while ($row = mysqli_fetch_assoc($indigency)) {
 if (count($indigency_arr) != 0) {
     $indigency_arr2 = $indigency_arr;
     array_shift($indigency_arr2);
-};
+}
+;
 
 $sql = "SELECT * FROM tbl_policeclr brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $police_clear = mysqli_query($conn, $sql);
@@ -83,8 +85,8 @@ while ($row = mysqli_fetch_assoc($police_clear)) {
 if (count($police_clear_arr) != 0) {
     $police_clear_arr2 = $police_clear_arr;
     array_shift($police_clear_arr2);
-};
-
+}
+;
 
 $sql = "SELECT * FROM tbl_residency brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $residency = mysqli_query($conn, $sql);
@@ -98,10 +100,10 @@ while ($row = mysqli_fetch_assoc($residency)) {
 if (count($residency_arr) != 0) {
     $residency_arr2 = $residency_arr;
     array_shift($residency_arr2);
-};
+}
+;
 
 header("Refresh:2");
-
 
 ?>
 
@@ -162,7 +164,7 @@ header("Refresh:2");
                                 <a href="../../departments/residency/">Residency</a>
                                 <a href="../../departments/clearance/">Clearance</a>
                                 <a href="../../departments/indigency/">Indigency</a>
-                                <a href="../../departments/police_clearance/">Police Clearance</a>
+                                <a href="../../departments/police_clearance/">Business Clearance</a>
                                 <a href="../../departments/cedula/">Cedula</a>
                             </li>
                         </ul>
@@ -176,16 +178,16 @@ header("Refresh:2");
                                 <a href="../../departments/residency/">Residency</a>
                                 <a href="../../departments/clearance/">Clearance</a>
                                 <a href="../../departments/indigency/">Indigency</a>
-                                <a href="../../departments/police_clearance/">Police Clearance</a>
+                                <a href="../../departments/police_clearance/">Business Clearance</a>
                                 <a href="../../departments/cedula/">Cedula</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="records.php">Records</a>
-                        
+
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -203,7 +205,7 @@ header("Refresh:2");
                     <?php if (count($brgy_id_arr) != 0): ?>
                     <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $brgy_id_arr[0]['docu_table_id']; ?></i>|
                     <?php echo $brgy_id_arr[0]['user_first_name']; ?></u></mark></h1>
-                    <?php endif; ?>
+                    <?php endif;?>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -222,8 +224,8 @@ header("Refresh:2");
                                         </h3>
                                     </td>
                                 </tr>
-                            <?php endforeach; ?>
-                    <?php endif; ?>
+                            <?php endforeach;?>
+                    <?php endif;?>
                             </tbody>
                         </table>
                     </div>
@@ -233,14 +235,14 @@ header("Refresh:2");
         <div class="col-md-2" style="padding-top: 1rem" >
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 class="text-center">Cedula</h2>
+                    <h2 class="text-center">Building Clearance</h2>
                 </div>
                 <div>
                     <h2 class="text-center">Now Serving</h2>
                     <?php if (count($cedula_arr) != 0): ?>
                     <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $cedula_arr[0]['docu_table_id']; ?></i>|
                     <?php echo $cedula_arr[0]['user_first_name']; ?></u></mark></h1>
-                    <?php endif; ?>
+                    <?php endif;?>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -259,8 +261,8 @@ header("Refresh:2");
                                         </h3>
                                     </td>
                                 </tr>
-                            <?php endforeach; ?>
-                    <?php endif; ?>
+                            <?php endforeach;?>
+                    <?php endif;?>
                             </tbody>
                         </table>
                     </div>
@@ -277,7 +279,7 @@ header("Refresh:2");
                     <?php if (count($brgy_clear_arr) != 0): ?>
                     <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $brgy_clear_arr[0]['docu_table_id']; ?></i>|
                     <?php echo $brgy_clear_arr[0]['user_first_name']; ?></u></mark></h1>
-                    <?php endif; ?>
+                    <?php endif;?>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -296,8 +298,8 @@ header("Refresh:2");
                                         </h3>
                                     </td>
                                 </tr>
-                            <?php endforeach; ?>
-                    <?php endif; ?>
+                            <?php endforeach;?>
+                    <?php endif;?>
                             </tbody>
                         </table>
                     </div>
@@ -314,7 +316,7 @@ header("Refresh:2");
                     <?php if (count($indigency_arr) != 0): ?>
                     <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $indigency_arr[0]['docu_table_id']; ?></i>|
                     <?php echo $indigency_arr[0]['user_first_name']; ?></u></mark></h1>
-                    <?php endif; ?>
+                    <?php endif;?>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -333,8 +335,8 @@ header("Refresh:2");
                                         </h3>
                                     </td>
                                 </tr>
-                            <?php endforeach; ?>
-                    <?php endif; ?>
+                            <?php endforeach;?>
+                    <?php endif;?>
                             </tbody>
                         </table>
                     </div>
@@ -344,14 +346,14 @@ header("Refresh:2");
         <div class="col-md-2" style="padding-top: 1rem" >
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 class="text-center">Police Clearance</h2>
+                    <h2 class="text-center">Business Clearance</h2>
                 </div>
                 <div>
                     <h2 class="text-center">Now Serving</h2>
                     <?php if (count($police_clear_arr) != 0): ?>
                         <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $police_clear_arr[0]['docu_table_id']; ?></i>|
                         <?php echo $police_clear_arr[0]['user_first_name']; ?></u></mark></h1>
-                    <?php endif; ?>
+                    <?php endif;?>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -370,8 +372,8 @@ header("Refresh:2");
                                             </h3>
                                         </td>
                                     </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                                <?php endforeach;?>
+                            <?php endif;?>
                             </tbody>
                         </table>
                     </div>
@@ -388,7 +390,7 @@ header("Refresh:2");
                     <?php if (count($residency_arr) != 0): ?>
                         <h1 class="text-center"> <mark style='color:blue;'> <u> <i>00-<?php echo $residency_arr[0]['docu_table_id']; ?></i>|
                         <?php echo $residency_arr[0]['user_first_name']; ?></u></mark></h1>
-                    <?php endif; ?>
+                    <?php endif;?>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -407,8 +409,8 @@ header("Refresh:2");
                                             </h3>
                                         </td>
                                     </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                                <?php endforeach;?>
+                            <?php endif;?>
                             </tbody>
                         </table>
                     </div>
@@ -425,7 +427,7 @@ header("Refresh:2");
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/jquery.metisMenu.js"></script>
     <script src="../../assets/js/custom.js"></script>
-    
+
 
 
 </body>

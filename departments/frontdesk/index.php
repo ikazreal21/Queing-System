@@ -1,7 +1,7 @@
 <?php
 include "../../process.php";
-include "../../admin/validation.php";    
-include "../../function.php";    
+include "../../admin/validation.php";
+include "../../function.php";
 
 $date = date('Y-m-d');
 $time = date('h:i');
@@ -12,23 +12,19 @@ $gender = "";
 $birhtplace = "";
 $birthdate = date('Y-m-d');
 
-
 // echo '<pre>';
 // var_dump($date);
 // echo '<pre>';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-      
-    
     $firstname = $_POST['first_name'];
-    $middlename =  $_POST['middle_name'];
-    $lastname =  $_POST['last_name'];
-    $gender =  $_POST['gender'];
-    $birhtplace =  $_POST['birth_place'];
+    $middlename = $_POST['middle_name'];
+    $lastname = $_POST['last_name'];
+    $gender = $_POST['gender'];
+    $birhtplace = $_POST['birth_place'];
     $birthdate = date('Y-m-d', strtotime($_POST['birth_date']));
     $user_id_and_queue_id = randomString(6);
 
-    
     // $brgy_id =  isset($_POST['brgyid']);
     // $cedula =  isset($_POST['cedula']);
     // $recidency =  isset($_POST['residency']);
@@ -40,28 +36,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // var_dump($_POST);
     // echo '<pre>';
 
-
     $sql = "INSERT INTO tbl_userinformation(first_name, middle_name, last_name, gender, birthplace, birthday, queue_id) VALUES ('$firstname','$middlename','$lastname','$gender','$birhtplace','$birthdate','$user_id_and_queue_id')";
-    $insert = $conn->query($sql);   
+    $insert = $conn->query($sql);
 
     // $sql = "INSERT INTO docu_table(user_id, cedula, brgy_id, brgy_clearance, indigency, recidency, police_clearance) VALUES ('$user_id_and_queue_id','$cedula','$brgy_id','$brgy_clearance','$indigency','$recidency','$police_clearance')";
-    // $insert = $conn->query($sql);   
+    // $insert = $conn->query($sql);
 
     // if ($brgy_id) {
     //     if ($cedula) {
     //         $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-	// 	    $insert = $conn->query($sql);
+    //         $insert = $conn->query($sql);
     //     } else {
     //         $sql = "INSERT INTO tbl_brgyid(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-	// 	    $insert = $conn->query($sql);
+    //         $insert = $conn->query($sql);
     //     }
     // } elseif ($brgy_clearance) {
     //     if ($cedula) {
     //         $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-	// 	    $insert = $conn->query($sql);
+    //         $insert = $conn->query($sql);
     //     } else {
     //         $sql = "INSERT INTO tbl_clearance(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
-	// 	    $insert = $conn->query($sql);
+    //         $insert = $conn->query($sql);
     //     }
     // } elseif ($cedula) {
     //     $sql = "INSERT INTO tbl_cedula(DATE,TIME,User_id,user_first_name) VALUES ('$date','$time','$user_id_and_queue_id', '$firstname')";
@@ -79,11 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     header("location:visitors_record.php");
 
-
-
 }
-			
-
 
 ?>
 
@@ -145,8 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <a href="../../admin/resrec.php">Residency</a>
                                 <a href="../../admin/clrrec.php">Clearance</a>
                                 <a href="../../admin/indrec.php">Indigency</a>
-                                <a href="../../admin/pcrec.php">Police Clearance</a>
-                                <a href="../../admin/cedrec.php">Cedula</a>
+                                <a href="../../admin/pcrec.php">Business Clearance</a>
+                                <a href="../../admin/cedrec.php">Building Clearance</a>
                             </li>
                         </ul>
                     </li>
@@ -160,13 +151,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </li>
                     <li>
                         <a href="../../admin/records.php">Records</a>
-                        
+
                     </li>
                     <li>
                         <a href="active-queue.php">Active Queue</a>
-                        
+
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -190,7 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="panel panel-b">
                         <div class="panel-body">
                             <form role="form" method="post">
-                                <div class="row"> 
+                                <div class="row">
                                     <div class="form-group col-md-4">
                                         <label>First Name</label>
                                         <input class="form-control" name="first_name" type="text" required>
@@ -203,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <label>Last Name</label>
                                         <input class="form-control" name="last_name" type="text" required>
                                     </div>
-                                </div>  
+                                </div>
                                 <div class="row">
                                     <div class="form-group col-md-4">
                                         <label>Birth Place</label>
@@ -250,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="pc" value="True">Police Clearance
+                                            <input type="checkbox" name="pc" value="True">Business Clearance
                                         </label>
                                     </div>
                                 </div> -->
@@ -272,7 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/jquery.metisMenu.js"></script>
     <script src="../../assets/js/custom.js"></script>
-    
+
 
 
 </body>

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
 
       th {
-        background-color: #c31432;
+        background-color: #0435f7;
         color: white;
       }
 
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
 
       button {
-        background-color: #c31432;
+        background-color: #0435f7;
         border: none;
         color: white;
         padding: 10px 20px;

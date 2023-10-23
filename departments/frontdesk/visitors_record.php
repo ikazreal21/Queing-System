@@ -1,8 +1,7 @@
 <?php
 include "../../process.php";
-include "../../admin/validation.php";    
-include "../../function.php";    
-
+include "../../admin/validation.php";
+include "../../function.php";
 
 // echo '<pre>';
 // var_dump($date);
@@ -19,9 +18,6 @@ if ($search1) {
     $sql = "SELECT * FROM tbl_userinformation";
     $result = mysqli_query($conn, $sql);
 }
-
-			
-
 
 ?>
 
@@ -83,8 +79,8 @@ if ($search1) {
                                 <a href="../../admin/resrec.php">Residency</a>
                                 <a href="../../admin/clrrec.php">Clearance</a>
                                 <a href="../../admin/indrec.php">Indigency</a>
-                                <a href="../../admin/pcrec.php">Police Clearance</a>
-                                <a href="../../admin/cedrec.php">Cedula</a>
+                                <a href="../../admin/pcrec.php">Business Clearance</a>
+                                <a href="../../admin/cedrec.php">Building Clearance</a>
                             </li>
                         </ul>
                     </li>
@@ -99,13 +95,13 @@ if ($search1) {
                     </li>
                     <li>
                         <a href="../../admin/records.php">Records</a>
-                        
+
                     </li>
                     <li>
                         <a href="active-queue.php">Active Queue</a>
-                        
+
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -145,7 +141,7 @@ if ($search1) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                                    <?php while ($row = mysqli_fetch_assoc($result)) {?>
                                         <tr>
                                             <td><?php echo $row['queue_id']; ?></td>
                                             <td><?php echo $row['first_name']; ?></td>
@@ -154,7 +150,7 @@ if ($search1) {
                                                 <a href="view_visitor.php?id=<?php echo $row['queue_id']; ?>" class="btn btn-success btn-wd">View Visitor</a>
                                             </td>
                                         </tr>
-		                            <?php } ?>
+		                            <?php }?>
                                     </tbody>
                                 </table>
                             </div>
@@ -175,7 +171,7 @@ if ($search1) {
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/jquery.metisMenu.js"></script>
     <script src="../../assets/js/custom.js"></script>
-    
+
 
 
 </body>
