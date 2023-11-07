@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2023 at 07:21 PM
+-- Generation Time: Nov 07, 2023 at 10:22 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -93,8 +93,9 @@ CREATE TABLE `docu_table` (
 INSERT INTO `docu_table` (`docu_table_id`, `user_id`, `cedula`, `brgy_id`, `brgy_clearance`, `indigency`, `recidency`, `police_clearance`, `user_queue_number`) VALUES
 (80, '3HQ9FR', '1', '1', '1', '', '1', '', '2'),
 (135, 'CJKGD0', '0', '0', '0', '1', '1', '1', '3'),
-(145, 'M20DBK', '0', '1', '1', '1', '1', '1', '3'),
-(147, 'Z4WOHJ', '0', '1', '1', '1', '1', '1', '4');
+(147, 'Z4WOHJ', '0', '1', '1', '1', '1', '1', '4'),
+(149, 'M20DBK', '1', '1', '1', '1', '1', '1', '4'),
+(157, '7D5KDJ', '1', '1', '1', '1', '1', '1', '5');
 
 -- --------------------------------------------------------
 
@@ -163,6 +164,14 @@ CREATE TABLE `tbl_cedula` (
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_cedula`
+--
+
+INSERT INTO `tbl_cedula` (`ID`, `DATE`, `TIME`, `User_id`, `user_first_name`) VALUES
+(9, '2023-10-24', '01:41', 'M20DBK', 'Joaquin Zaki'),
+(12, '2023-11-08', '05:21', '7D5KDJ', 'Joaquin111111212121');
 
 -- --------------------------------------------------------
 
@@ -462,9 +471,6 @@ CREATE TABLE `tbl_userinformation` (
   `first_name` varchar(255) NOT NULL,
   `middle_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
-  `gender` varchar(255) NOT NULL,
-  `birthplace` varchar(255) NOT NULL,
-  `birthday` varchar(255) NOT NULL,
   `queue_id` varchar(255) NOT NULL,
   `queue_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -473,11 +479,12 @@ CREATE TABLE `tbl_userinformation` (
 -- Dumping data for table `tbl_userinformation`
 --
 
-INSERT INTO `tbl_userinformation` (`user_id`, `first_name`, `middle_name`, `last_name`, `gender`, `birthplace`, `birthday`, `queue_id`, `queue_status`) VALUES
-(1, 'Joaquin Zaki', 'Baguna', 'Soriano', 'male', 'Quezon City', '2023-10-20', 'M20DBK', ''),
-(2, 'Juan', '', 'Dela Cruz', 'male', 'Pasig City', '2023-10-17', '4V613Y', ''),
-(3, 'Jobelle', '', 'Rubia', 'female', 'Pasig City', '2023-10-25', 'EV89FG', ''),
-(4, 'Mark', '', 'Dela Cruz', 'male', 'Quezon City', '2001-06-13', 'Z4WOHJ', '');
+INSERT INTO `tbl_userinformation` (`user_id`, `first_name`, `middle_name`, `last_name`, `queue_id`, `queue_status`) VALUES
+(1, 'Joaquin Zaki', 'Baguna', 'Soriano', 'M20DBK', ''),
+(2, 'Juan', '', 'Dela Cruz', '4V613Y', ''),
+(3, 'Jobelle', '', 'Rubia', 'EV89FG', ''),
+(4, 'Mark', '', 'Dela Cruz', 'Z4WOHJ', ''),
+(9, 'Joaquin111111212121', 'Zaki', 'Soriano', '7D5KDJ', '');
 
 --
 -- Indexes for dumped tables
@@ -600,7 +607,7 @@ ALTER TABLE `db_num`
 -- AUTO_INCREMENT for table `docu_table`
 --
 ALTER TABLE `docu_table`
-  MODIFY `docu_table_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `docu_table_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT for table `tbl_brgyid`
@@ -618,7 +625,7 @@ ALTER TABLE `tbl_cedrecords`
 -- AUTO_INCREMENT for table `tbl_cedula`
 --
 ALTER TABLE `tbl_cedula`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_clearance`
@@ -690,7 +697,7 @@ ALTER TABLE `tbl_resrecords`
 -- AUTO_INCREMENT for table `tbl_userinformation`
 --
 ALTER TABLE `tbl_userinformation`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

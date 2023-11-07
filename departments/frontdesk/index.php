@@ -20,9 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstname = $_POST['first_name'];
     $middlename = $_POST['middle_name'];
     $lastname = $_POST['last_name'];
-    $gender = $_POST['gender'];
-    $birhtplace = $_POST['birth_place'];
-    $birthdate = date('Y-m-d', strtotime($_POST['birth_date']));
     $user_id_and_queue_id = randomString(6);
 
     // $brgy_id =  isset($_POST['brgyid']);
@@ -36,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // var_dump($_POST);
     // echo '<pre>';
 
-    $sql = "INSERT INTO tbl_userinformation(first_name, middle_name, last_name, gender, birthplace, birthday, queue_id) VALUES ('$firstname','$middlename','$lastname','$gender','$birhtplace','$birthdate','$user_id_and_queue_id')";
+    $sql = "INSERT INTO tbl_userinformation(first_name, middle_name, last_name, queue_id) VALUES ('$firstname','$middlename','$lastname','$user_id_and_queue_id')";
     $insert = $conn->query($sql);
 
     // $sql = "INSERT INTO docu_table(user_id, cedula, brgy_id, brgy_clearance, indigency, recidency, police_clearance) VALUES ('$user_id_and_queue_id','$cedula','$brgy_id','$brgy_clearance','$indigency','$recidency','$police_clearance')";
@@ -72,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //     $insert = $conn->query($sql);
     // }
 
-    header("location:visitors_record.php");
+    header("location:view_visitor.php?id=".$user_id_and_queue_id);
 
 }
 
@@ -193,23 +190,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="form-group col-md-4">
                                         <label>Last Name</label>
                                         <input class="form-control" name="last_name" type="text" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-4">
-                                        <label>Birth Place</label>
-                                        <input class="form-control" name="birth_place" type="text" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Birth Date</label>
-                                        <input class="form-control" name="birth_date" type="date" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Gender</label>
-                                        <select name="gender" class="form-control" required>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                        </select>
                                     </div>
                                 </div>
                                 <!-- <div class="form-group">

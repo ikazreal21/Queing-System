@@ -88,9 +88,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     $firstname = $row['first_name'];
     $middlename = $row['middle_name'];
     $lastname = $row['last_name'];
-    $gender = $row['gender'];
-    $birthplace = $row['birthplace'];
-    $birthdate = $row['birthday'];
     $user_id_and_queue_id = $row['queue_id'];
 }
 
@@ -277,23 +274,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="form-group col-md-4">
                                         <label>Last Name</label>
                                         <input class="form-control" name="last_name" value="<?php echo $lastname; ?>" type="text" required disabled>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-4">
-                                        <label>Birth Place</label>
-                                        <input class="form-control" name="birth_place"  value="<?php echo $birthplace; ?>" type="text" required disabled>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Birth Date</label>
-                                        <input class="form-control" name="birth_date" value="<?php echo $birthdate; ?>" type="text" required disabled>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Gender</label>
-                                        <select name="gender" class="form-control" value="<?php echo ucfirst($gender); ?>" required disabled>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                        </select>
                                     </div>
                                 </div>
                                 <?php if ($insert): ?>
