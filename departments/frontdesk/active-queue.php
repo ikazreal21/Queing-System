@@ -13,6 +13,12 @@ $brgy_clear_arr = [];
 $indigency_arr = [];
 $police_clear_arr = [];
 $residency_arr = [];
+$brgy_id_arr2 = [];
+$cedula_arr2 = [];
+$brgy_clear_arr2 = [];
+$indigency_arr2 = [];
+$police_clear_arr2 = [];
+$residency_arr2 = [];
 
 $sql = "SELECT * FROM tbl_brgyid brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id";
 $brgy_id = mysqli_query($conn, $sql);
@@ -213,8 +219,63 @@ header("Refresh:2");
                             <thead>
                             </thead>
                             <tbody>
-                    <?php if (count($brgy_id_arr) != 0): ?>
-                            <?php foreach ($brgy_id_arr2 as $i => $item): ?>
+                    <?php if (count($brgy_id_arr2) >= 5): ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                1.) <i>00-<?php echo $brgy_id_arr2[0]['docu_table_id']; ?> </i> |<?php echo $brgy_id_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                2.) <i>00-<?php echo $brgy_id_arr2[1]['docu_table_id']; ?> </i> |<?php echo $brgy_id_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                3.) <i>00-<?php echo $brgy_id_arr2[2]['docu_table_id']; ?> </i> |<?php echo $brgy_id_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                4.) <i>00-<?php echo $brgy_id_arr2[3]['docu_table_id']; ?> </i> |<?php echo $brgy_id_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                5.) <i>00-<?php echo $brgy_id_arr2[4]['docu_table_id']; ?> </i> |<?php echo $brgy_id_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                               .....................
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                    <?php elseif (count($brgy_id_arr) != 0): ?>
+                        <?php foreach ($brgy_id_arr2 as $i => $item): ?>
                                 <tr class="text-center">
                                     <td>
                                         <h3>
@@ -225,6 +286,16 @@ header("Refresh:2");
                                     </td>
                                 </tr>
                             <?php endforeach;?>
+                    <?php else: ?>
+                        <tr class="text-center">
+                            <td>
+                                <h3>
+                                    <b>
+                                    No Queue in Line
+                                    </b>
+                                </h3>
+                            </td>
+                        </tr>
                     <?php endif;?>
                             </tbody>
                         </table>
@@ -246,12 +317,67 @@ header("Refresh:2");
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table">
+                    <table class="table table-hover">
                             <thead>
                             </thead>
                             <tbody>
-                    <?php if (count($cedula_arr) != 0): ?>
-                            <?php foreach ($cedula_arr2 as $i => $item): ?>
+                    <?php if (count($cedula_arr2) >= 5): ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                1.) <i>00-<?php echo $cedula_arr2[0]['docu_table_id']; ?> </i> |<?php echo $cedula_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                2.) <i>00-<?php echo $cedula_arr2[1]['docu_table_id']; ?> </i> |<?php echo $cedula_arr2[1]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                3.) <i>00-<?php echo $cedula_arr2[2]['docu_table_id']; ?> </i> |<?php echo $cedula_arr2[2]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                4.) <i>00-<?php echo $cedula_arr2[3]['docu_table_id']; ?> </i> |<?php echo $cedula_arr2[3]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                5.) <i>00-<?php echo $cedula_arr2[4]['docu_table_id']; ?> </i> |<?php echo $cedula_arr2[4]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                               .....................
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                    <?php elseif (count($cedula_arr) != 0): ?>
+                        <?php foreach ($cedula_arr2 as $i => $item): ?>
                                 <tr class="text-center">
                                     <td>
                                         <h3>
@@ -262,6 +388,16 @@ header("Refresh:2");
                                     </td>
                                 </tr>
                             <?php endforeach;?>
+                    <?php else: ?>
+                        <tr class="text-center">
+                            <td>
+                                <h3>
+                                    <b>
+                                    No Queue in Line
+                                    </b>
+                                </h3>
+                            </td>
+                        </tr>
                     <?php endif;?>
                             </tbody>
                         </table>
@@ -283,12 +419,67 @@ header("Refresh:2");
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                    <table class="table table-hover">
                             <thead>
                             </thead>
                             <tbody>
-                    <?php if (count($brgy_clear_arr) != 0): ?>
-                            <?php foreach ($brgy_clear_arr2 as $i => $item): ?>
+                    <?php if (count($brgy_clear_arr2) >= 5): ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                1.) <i>00-<?php echo $brgy_clear_arr2[0]['docu_table_id']; ?> </i> |<?php echo $brgy_clear_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                2.) <i>00-<?php echo $brgy_clear_arr2[1]['docu_table_id']; ?> </i> |<?php echo $brgy_clear_arr2[1]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                3.) <i>00-<?php echo $brgy_clear_arr2[2]['docu_table_id']; ?> </i> |<?php echo $brgy_clear_arr2[2]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                4.) <i>00-<?php echo $brgy_clear_arr2[3]['docu_table_id']; ?> </i> |<?php echo $brgy_clear_arr2[3]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                5.) <i>00-<?php echo $brgy_clear_arr2[4]['docu_table_id']; ?> </i> |<?php echo $brgy_clear_arr2[4]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                               .....................
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                    <?php elseif (count($brgy_clear_arr) != 0): ?>
+                        <?php foreach ($brgy_clear_arr2 as $i => $item): ?>
                                 <tr class="text-center">
                                     <td>
                                         <h3>
@@ -299,6 +490,16 @@ header("Refresh:2");
                                     </td>
                                 </tr>
                             <?php endforeach;?>
+                    <?php else: ?>
+                        <tr class="text-center">
+                            <td>
+                                <h3>
+                                    <b>
+                                    No Queue in Line
+                                    </b>
+                                </h3>
+                            </td>
+                        </tr>
                     <?php endif;?>
                             </tbody>
                         </table>
@@ -320,12 +521,67 @@ header("Refresh:2");
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                    <table class="table table-hover">
                             <thead>
                             </thead>
                             <tbody>
-                    <?php if (count($indigency_arr) != 0): ?>
-                            <?php foreach ($indigency_arr2 as $i => $item): ?>
+                    <?php if (count($indigency_arr2) >= 5): ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                1.) <i>00-<?php echo $indigency_arr2[0]['docu_table_id']; ?> </i> |<?php echo $indigency_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                2.) <i>00-<?php echo $indigency_arr2[1]['docu_table_id']; ?> </i> |<?php echo $indigency_arr2[1]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                3.) <i>00-<?php echo $indigency_arr2[2]['docu_table_id']; ?> </i> |<?php echo $indigency_arr2[2]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                4.) <i>00-<?php echo $indigency_arr2[3]['docu_table_id']; ?> </i> |<?php echo $indigency_arr2[3]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                5.) <i>00-<?php echo $indigency_arr2[4]['docu_table_id']; ?> </i> |<?php echo $indigency_arr2[4]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                               .....................
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                    <?php elseif (count($indigency_arr) != 0): ?>
+                        <?php foreach ($indigency_arr2 as $i => $item): ?>
                                 <tr class="text-center">
                                     <td>
                                         <h3>
@@ -336,6 +592,16 @@ header("Refresh:2");
                                     </td>
                                 </tr>
                             <?php endforeach;?>
+                    <?php else: ?>
+                        <tr class="text-center">
+                            <td>
+                                <h3>
+                                    <b>
+                                    No Queue in Line
+                                    </b>
+                                </h3>
+                            </td>
+                        </tr>
                     <?php endif;?>
                             </tbody>
                         </table>
@@ -357,23 +623,88 @@ header("Refresh:2");
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                    <table class="table table-hover">
                             <thead>
                             </thead>
                             <tbody>
-                            <?php if (count($police_clear_arr) != 0): ?>
-                                <?php foreach ($police_clear_arr2 as $i => $item): ?>
-                                    <tr class="text-center">
-                                        <td>
-                                            <h3>
-                                                <b>
-                                                <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
-                                                </b>
-                                            </h3>
-                                        </td>
-                                    </tr>
-                                <?php endforeach;?>
-                            <?php endif;?>
+                    <?php if (count($police_clear_arr2) >= 5): ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                1.) <i>00-<?php echo $police_clear_arr2[0]['docu_table_id']; ?> </i> |<?php echo $police_clear_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                2.) <i>00-<?php echo $police_clear_arr2[1]['docu_table_id']; ?> </i> |<?php echo $police_clear_arr2[1]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                3.) <i>00-<?php echo $police_clear_arr2[2]['docu_table_id']; ?> </i> |<?php echo $police_clear_arr2[2]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                4.) <i>00-<?php echo $police_clear_arr2[3]['docu_table_id']; ?> </i> |<?php echo $police_clear_arr2[3]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                5.) <i>00-<?php echo $police_clear_arr2[4]['docu_table_id']; ?> </i> |<?php echo $police_clear_arr2[4]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                               .....................
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                    <?php elseif (count($police_clear_arr) != 0): ?>
+                        <?php foreach ($police_clear_arr2 as $i => $item): ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                            <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                            <?php endforeach;?>
+                    <?php else: ?>
+                        <tr class="text-center">
+                            <td>
+                                <h3>
+                                    <b>
+                                    No Queue in Line
+                                    </b>
+                                </h3>
+                            </td>
+                        </tr>
+                    <?php endif;?>
                             </tbody>
                         </table>
                     </div>
@@ -394,23 +725,88 @@ header("Refresh:2");
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                    <table class="table table-hover">
                             <thead>
                             </thead>
                             <tbody>
-                            <?php if (count($residency_arr) != 0): ?>
-                                <?php foreach ($residency_arr2 as $i => $item): ?>
-                                    <tr class="text-center">
-                                        <td>
-                                            <h3>
-                                                <b>
-                                                <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
-                                                </b>
-                                            </h3>
-                                        </td>
-                                    </tr>
-                                <?php endforeach;?>
-                            <?php endif;?>
+                    <?php if (count($residency_arr2) >= 5): ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                1.) <i>00-<?php echo $residency_arr2[0]['docu_table_id']; ?> </i> |<?php echo $residency_arr2[0]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                2.) <i>00-<?php echo $residency_arr2[1]['docu_table_id']; ?> </i> |<?php echo $residency_arr2[1]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                3.) <i>00-<?php echo $residency_arr2[2]['docu_table_id']; ?> </i> |<?php echo $residency_arr2[2]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                4.) <i>00-<?php echo $residency_arr2[3]['docu_table_id']; ?> </i> |<?php echo $residency_arr2[3]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                                5.) <i>00-<?php echo $residency_arr2[4]['docu_table_id']; ?> </i> |<?php echo $residency_arr2[4]['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                               .....................
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                    <?php elseif (count($residency_arr) != 0): ?>
+                        <?php foreach ($residency_arr2 as $i => $item): ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <h3>
+                                            <b>
+                                            <?php echo $i + 1; ?>.) <i>00-<?php echo $item['docu_table_id']; ?> </i> |<?php echo $item['user_first_name']; ?>
+                                            </b>
+                                        </h3>
+                                    </td>
+                                </tr>
+                            <?php endforeach;?>
+                    <?php else: ?>
+                        <tr class="text-center">
+                            <td>
+                                <h3>
+                                    <b>
+                                    No Queue in Line
+                                    </b>
+                                </h3>
+                            </td>
+                        </tr>
+                    <?php endif;?>
                             </tbody>
                         </table>
                     </div>

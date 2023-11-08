@@ -40,7 +40,6 @@ while ($row = mysqli_fetch_assoc($result2)) {
 if (count($arr2) != 0) {
     $fullname = $arr2[0]['first_name'] . ' ' . $arr2[0]['middle_name'] . ' ' . $arr2[0]['last_name'];
     $first_name = $arr2[0]['first_name'];
-    $birthday = date('M d, Y', strtotime($arr2[0]['birthday']));
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -184,7 +183,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                                 <ul class="plan-two ">
                                     <h3>Queue ID: <b>00-<?php echo $number_id; ?></b></h3>
-                                    <h3>Birthday: <?php echo $birthday; ?></h3>
                                 </ul>
                                 <form action="" method="post">
                                     <button type="submit" class="btn btn-info">Next</button>
