@@ -44,7 +44,7 @@ if ($docu_table->num_rows != 0) {
         
             if ($cedula->num_rows != 0) {
                 $position = intval(array_search($id, $cedula_arr));
-                $document = 'Cedula';
+                $document = 'Building Clearance';
         
             }
         } else {
@@ -74,7 +74,7 @@ if ($docu_table->num_rows != 0) {
         
             if ($cedula->num_rows != 0) {
                 $position = intval(array_search($id, $cedula_arr));
-                $document = 'Cedula';
+                $document = 'Building Clearance';
         
             }
         } else {
@@ -103,7 +103,7 @@ if ($docu_table->num_rows != 0) {
     
         if ($cedula->num_rows != 0) {
             $position = intval(array_search($id, $cedula_arr));
-            $document = 'Cedula';
+            $document = 'Building Clearance';
     
         }
     } elseif ($docu_table2[0]['recidency']) {
@@ -176,7 +176,7 @@ if ($docu_table->num_rows != 0) {
 
     // if ($cedula->num_rows != 0) {
     //     $position = intval(array_search($id, $cedula_arr));
-    //     $document = 'Cedula';
+    //     $document = 'Building Clearance';
 
     // }
 
