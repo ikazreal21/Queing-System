@@ -9,7 +9,7 @@ include "../../function.php";
 $search1 = $_GET['first_name'] ?? '';
 
 if ($search1) {
-    $sql = "SELECT * FROM tbl_userinformation where first_name like '%$search1%'";
+    $sql = "SELECT * FROM tbl_userinformation where first_name or queue_id like '%$search1%'";
     $result = mysqli_query($conn, $sql);
     //     echo '<pre>';
     // var_dump($result);
@@ -121,7 +121,7 @@ if ($search1) {
                             <form action=""  method="get">
                                 <div class="row">
                                     <div class="form-group col-md-4">
-                                        <input class="form-control" name="first_name" placeholder="First Name" type="text">
+                                        <input class="form-control" name="first_name" placeholder="First Name or Unique ID" type="text">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <button type="submit" class="btn btn-info">Search Visitor</button>

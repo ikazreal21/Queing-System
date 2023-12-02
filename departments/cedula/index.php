@@ -13,7 +13,7 @@ $first_name = '';
 $birthday = '';
 $number_id = '';
 
-$sql = "SELECT * FROM tbl_cedula cd, docu_table dc where DATE = '$date' and cd.User_id = dc.user_id  order by ID ASC limit 1";
+$sql = "SELECT * FROM tbl_cedula cd, docu_table dc where DATE = '$date' and cd.User_id = dc.user_id  order by ID ASC limit 2";
 $result = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -43,10 +43,10 @@ if (count($arr2) != 0) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $sql = "INSERT INTO tbl_records(Department,DATE,TIME,fullname,User_id) VALUES ('Cedula','$date','$time','$fullname','$queue_id')";
+    $sql = "INSERT INTO tbl_records(Department,DATE,TIME,fullname,User_id) VALUES ('Building Clearance','$date','$time','$fullname','$queue_id')";
     $insert = $conn->query($sql);
 
-    $sql = "INSERT INTO tbl_cedrecords(Department,DATE,TIME,User_id,user_first_name) VALUES ('Cedula','$date','$time','$queue_id','$first_name')";
+    $sql = "INSERT INTO tbl_cedrecords(Department,DATE,TIME,User_id,user_first_name) VALUES ('Building Clearance','$date','$time','$queue_id','$first_name')";
     $insert = $conn->query($sql);
 
     $sql = "DELETE FROM tbl_cedula WHERE  DATE = '$date' order by ID ASC limit 1";
@@ -188,6 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </ul>
                                 <form action="" method="post">
                                     <button type="submit" class="btn btn-info">Next</button>
+                                    <a href="swap.php?id1=<?php echo $arr[0]["ID"]; ?>&id2=<?php echo $arr[1]["ID"]; ?>" class="btn btn-warning">Swap</a>
                                 </form>
                             </div>
 

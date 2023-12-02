@@ -10,6 +10,9 @@ require "../../vendor/autoload.php";
 
 $id = $_GET['id'] ?? '';
 
+$sql = "SELECT * FROM tbl_records where User_id = '$id'";
+$result1 = mysqli_query($conn, $sql);
+
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     $link = "https";
 } else {
@@ -42,7 +45,7 @@ use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 
 $qr_code = QrCode::create($link . $id)
-    ->setSize(220)
+    ->setSize(190)
     ->setMargin(0);
 
 $writer = new PngWriter;
@@ -321,6 +324,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="text-align: center;">
+                                Request Record
+                            </div>
+                            <div class="panel-heading" style="text-align: end;">
+                                <a href="download.php?id=<?php echo $id; ?>&name=<?php echo $first; ?>" class="btn btn-warning  btn-wd">Export Record</a>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Department</th>
+                                                <th>Time</th>
+                                                <th>Full Name</th>
+                                                <!-- <th>Username</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            while ($row = mysqli_fetch_assoc($result1)) {
+                                                ?>
+                                            <tr>
+                                                <td><?php echo $row['Department']; ?></td>
+                                                <td><?php echo date('M d, Y', strtotime($row['DATE'])); ?></td>
+                                                <td><?php echo $row['TIME']; ?></td>
+                                                <td><?php echo $row['fullname']; ?></td>
+                                            </tr>
+		                                <?php }?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End  Hover Rows  -->
+                    </div>
+                </div>
+
             </div>
             <img style="text-align: center;" src="image/<?php echo $id; ?>.png" alt="">
         </div>

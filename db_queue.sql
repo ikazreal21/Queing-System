@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2023 at 10:22 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Dec 02, 2023 at 08:59 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `db_num` (
   `ID` int(11) NOT NULL,
   `DBNUM` int(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `db_num`
@@ -84,18 +84,15 @@ CREATE TABLE `docu_table` (
   `recidency` varchar(255) NOT NULL,
   `police_clearance` varchar(255) NOT NULL,
   `user_queue_number` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `docu_table`
 --
 
 INSERT INTO `docu_table` (`docu_table_id`, `user_id`, `cedula`, `brgy_id`, `brgy_clearance`, `indigency`, `recidency`, `police_clearance`, `user_queue_number`) VALUES
-(80, '3HQ9FR', '1', '1', '1', '', '1', '', '2'),
-(135, 'CJKGD0', '0', '0', '0', '1', '1', '1', '3'),
-(147, 'Z4WOHJ', '0', '1', '1', '1', '1', '1', '4'),
-(149, 'M20DBK', '1', '1', '1', '1', '1', '1', '4'),
-(157, '7D5KDJ', '1', '1', '1', '1', '1', '1', '5');
+(213, 'M20DBK', '1', '1', '1', '1', '1', '1', ''),
+(215, '4V613Y', '1', '1', '1', '1', '1', '1', '');
 
 -- --------------------------------------------------------
 
@@ -111,7 +108,7 @@ CREATE TABLE `tbl_brgyid` (
   `NUMQ` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_brgyid`
@@ -136,7 +133,7 @@ CREATE TABLE `tbl_cedrecords` (
   `NUMBER` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_cedrecords`
@@ -149,7 +146,11 @@ INSERT INTO `tbl_cedrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `Use
 (4, 'Cedula', '2023-10-14', '09:08', 0, 'EV89FG', 'Jobelle'),
 (5, 'Cedula', '2023-10-22', '12:06', 0, 'M20DBK', 'Joaquin Zaki'),
 (6, 'Cedula', '2023-10-23', '11:40', 0, 'M20DBK', 'Joaquin Zaki'),
-(7, 'Cedula', '2023-10-23', '11:40', 0, 'Z4WOHJ', 'Mark');
+(7, 'Cedula', '2023-10-23', '11:40', 0, 'Z4WOHJ', 'Mark'),
+(8, 'Cedula', '2023-12-03', '02:07', 0, '4V613Y', 'Juan'),
+(9, 'Cedula', '2023-12-03', '02:11', 0, 'M20DBK', 'Joaquin Zaki'),
+(10, 'Building Clearance', '2023-12-03', '02:27', 0, '4V613Y', 'Juan'),
+(11, 'Building Clearance', '2023-12-03', '02:27', 0, 'M20DBK', 'Joaquin Zaki');
 
 -- --------------------------------------------------------
 
@@ -163,7 +164,7 @@ CREATE TABLE `tbl_cedula` (
   `TIME` varchar(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_cedula`
@@ -171,7 +172,15 @@ CREATE TABLE `tbl_cedula` (
 
 INSERT INTO `tbl_cedula` (`ID`, `DATE`, `TIME`, `User_id`, `user_first_name`) VALUES
 (9, '2023-10-24', '01:41', 'M20DBK', 'Joaquin Zaki'),
-(12, '2023-11-08', '05:21', '7D5KDJ', 'Joaquin111111212121');
+(12, '2023-11-08', '05:21', '7D5KDJ', 'Joaquin111111212121'),
+(18, '2023-12-03', '03:32', 'L9PRPZ', 'Joaquin'),
+(19, '2023-12-03', '03:33', 'E6QCCT', 'Joaquin Zaki'),
+(20, '2023-12-03', '03:34', '5YD5YF', 'Joaquin Zaki'),
+(21, '2023-12-03', '03:38', '5JP5TO', 'Joaquin Zaki'),
+(22, '2023-12-03', '03:40', '6PZ5C5', 'Joaquin Zaki'),
+(23, '2023-12-03', '03:41', 'G2U3KB', 'Joaquin Zaki'),
+(39, '2023-12-03', '03:57', 'M20DBK', 'Joaquin Zaki'),
+(40, '2023-12-03', '03:58', '4V613Y', 'Juan');
 
 -- --------------------------------------------------------
 
@@ -187,7 +196,7 @@ CREATE TABLE `tbl_clearance` (
   `NUMQ` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -203,7 +212,7 @@ CREATE TABLE `tbl_clrrecords` (
   `NUMBER` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_clrrecords`
@@ -213,7 +222,9 @@ INSERT INTO `tbl_clrrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `Use
 (1, 'Barangay Clearance', '2023-10-14', '09:01', 0, 'M20DBK', 'Joaquin Zaki'),
 (2, 'Barangay Clearance', '2023-10-14', '09:23', 0, 'M20DBK', 'Joaquin Zaki'),
 (3, 'Barangay Clearance', '2023-10-14', '09:23', 0, '4V613Y', 'Juan'),
-(4, 'Barangay Clearance', '2023-10-14', '09:23', 0, 'EV89FG', 'Jobelle');
+(4, 'Barangay Clearance', '2023-10-14', '09:23', 0, 'EV89FG', 'Jobelle'),
+(5, 'Barangay Clearance', '2023-12-03', '02:31', 0, '4V613Y', 'Juan'),
+(6, 'Barangay Clearance', '2023-12-03', '02:31', 0, 'M20DBK', 'Joaquin Zaki');
 
 -- --------------------------------------------------------
 
@@ -229,7 +240,7 @@ CREATE TABLE `tbl_idrecords` (
   `NUMBER` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_idrecords`
@@ -239,7 +250,9 @@ INSERT INTO `tbl_idrecords` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `User
 (1, 'Barangay ID', '2023-10-14', '09:01', 0, 'M20DBK', 'Joaquin Zaki'),
 (2, 'Barangay ID', '2023-10-14', '09:09', 0, 'M20DBK', 'Joaquin Zaki'),
 (3, 'Barangay ID', '2023-10-14', '09:23', 0, '4V613Y', 'Juan'),
-(4, 'Barangay ID', '2023-10-14', '09:23', 0, 'EV89FG', 'Jobelle');
+(4, 'Barangay ID', '2023-10-14', '09:23', 0, 'EV89FG', 'Jobelle'),
+(5, 'Barangay ID', '2023-12-03', '02:31', 0, 'M20DBK', 'Joaquin Zaki'),
+(6, 'Barangay ID', '2023-12-03', '02:31', 0, '4V613Y', 'Juan');
 
 -- --------------------------------------------------------
 
@@ -255,7 +268,7 @@ CREATE TABLE `tbl_indigency` (
   `NUMQ` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -271,7 +284,7 @@ CREATE TABLE `tbl_indrecords` (
   `NUMBER` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_indrecords`
@@ -292,7 +305,7 @@ CREATE TABLE `tbl_login` (
   `ID` int(11) NOT NULL,
   `USER` varchar(18) NOT NULL,
   `PASS` varchar(18) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_login`
@@ -305,7 +318,7 @@ INSERT INTO `tbl_login` (`ID`, `USER`, `PASS`) VALUES
 (4, 'clearance', 'clearance1234'),
 (5, 'indigency', 'indigency1234'),
 (6, 'pc', 'pc1234'),
-(7, 'cedula', 'cedula1234');
+(7, 'bdclr', 'bdclr1234');
 
 -- --------------------------------------------------------
 
@@ -321,7 +334,7 @@ CREATE TABLE `tbl_pcrecords` (
   `NUMBER` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_pcrecords`
@@ -347,7 +360,7 @@ CREATE TABLE `tbl_policeclr` (
   `NUMQ` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -363,7 +376,7 @@ CREATE TABLE `tbl_records` (
   `NUMBER` int(30) NOT NULL,
   `fullname` varchar(255) NOT NULL,
   `User_id` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_records`
@@ -416,7 +429,15 @@ INSERT INTO `tbl_records` (`ID`, `Department`, `DATE`, `TIME`, `NUMBER`, `fullna
 (47, 'Business Clearance', '2023-10-14', '09:26', 0, 'Jobelle  Rubia', 'EV89FG'),
 (48, 'Building Clearance', '2023-10-22', '12:06', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
 (49, 'Building Clearance', '2023-10-23', '11:40', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
-(50, 'Building Clearance', '2023-10-23', '11:40', 0, 'Mark  Dela Cruz', 'Z4WOHJ');
+(50, 'Building Clearance', '2023-10-23', '11:40', 0, 'Mark  Dela Cruz', 'Z4WOHJ'),
+(51, 'Building Clearance', '2023-12-03', '02:07', 0, 'Juan  Dela Cruz', '4V613Y'),
+(52, 'Building Clearance', '2023-12-03', '02:11', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(53, 'Building Clearance', '2023-12-03', '02:27', 0, 'Juan  Dela Cruz', '4V613Y'),
+(54, 'Building Clearance', '2023-12-03', '02:27', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(55, 'Barangay ID', '2023-12-03', '02:31', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK'),
+(56, 'Barangay ID', '2023-12-03', '02:31', 0, 'Juan  Dela Cruz', '4V613Y'),
+(57, 'Barangay Clearance', '2023-12-03', '02:31', 0, 'Juan  Dela Cruz', '4V613Y'),
+(58, 'Barangay Clearance', '2023-12-03', '02:31', 0, 'Joaquin Zaki Baguna Soriano', 'M20DBK');
 
 -- --------------------------------------------------------
 
@@ -432,7 +453,7 @@ CREATE TABLE `tbl_residency` (
   `NUMQ` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -448,7 +469,7 @@ CREATE TABLE `tbl_resrecords` (
   `NUMBER` int(30) NOT NULL,
   `User_id` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_resrecords`
@@ -473,7 +494,7 @@ CREATE TABLE `tbl_userinformation` (
   `last_name` varchar(255) NOT NULL,
   `queue_id` varchar(255) NOT NULL,
   `queue_status` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_userinformation`
@@ -484,7 +505,9 @@ INSERT INTO `tbl_userinformation` (`user_id`, `first_name`, `middle_name`, `last
 (2, 'Juan', '', 'Dela Cruz', '4V613Y', ''),
 (3, 'Jobelle', '', 'Rubia', 'EV89FG', ''),
 (4, 'Mark', '', 'Dela Cruz', 'Z4WOHJ', ''),
-(9, 'Joaquin111111212121', 'Zaki', 'Soriano', '7D5KDJ', '');
+(9, 'Joaquin111111212121', 'Zaki', 'Soriano', '7D5KDJ', ''),
+(10, 'ZAKI', 'ZAKI', 'ZAKI', 'UCO96N', ''),
+(11, 'Joaquin', 'Zaki', 'Soriano', 'L9PRPZ', '');
 
 --
 -- Indexes for dumped tables
@@ -591,7 +614,8 @@ ALTER TABLE `tbl_resrecords`
 -- Indexes for table `tbl_userinformation`
 --
 ALTER TABLE `tbl_userinformation`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `name_and_id` (`first_name`,`middle_name`,`last_name`) USING HASH;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -607,43 +631,43 @@ ALTER TABLE `db_num`
 -- AUTO_INCREMENT for table `docu_table`
 --
 ALTER TABLE `docu_table`
-  MODIFY `docu_table_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `docu_table_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
 
 --
 -- AUTO_INCREMENT for table `tbl_brgyid`
 --
 ALTER TABLE `tbl_brgyid`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_cedrecords`
 --
 ALTER TABLE `tbl_cedrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_cedula`
 --
 ALTER TABLE `tbl_cedula`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tbl_clearance`
 --
 ALTER TABLE `tbl_clearance`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_clrrecords`
 --
 ALTER TABLE `tbl_clrrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_idrecords`
 --
 ALTER TABLE `tbl_idrecords`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_indigency`
@@ -679,13 +703,13 @@ ALTER TABLE `tbl_policeclr`
 -- AUTO_INCREMENT for table `tbl_records`
 --
 ALTER TABLE `tbl_records`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `tbl_residency`
 --
 ALTER TABLE `tbl_residency`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_resrecords`
@@ -697,7 +721,7 @@ ALTER TABLE `tbl_resrecords`
 -- AUTO_INCREMENT for table `tbl_userinformation`
 --
 ALTER TABLE `tbl_userinformation`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -104,7 +104,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
 			}
 			
-			else if($row['USER'] == "cedula") {
+			else if($row['USER'] == "bdclr") {
 				$_SESSION['USER'] = "cedula";
 				
                 header("Location:departments/cedula/");

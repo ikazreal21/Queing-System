@@ -13,7 +13,7 @@ $first_name = '';
 $birthday = '';
 $number_id = '';
 
-$sql = "SELECT * FROM tbl_indigency ind, docu_table dc where DATE = '$date' and ind.User_id = dc.user_id  order by ID ASC limit 1";
+$sql = "SELECT * FROM tbl_indigency ind, docu_table dc where DATE = '$date' and ind.User_id = dc.user_id  order by ID ASC limit 2";
 $result = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -188,6 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </ul>
                                 <form action="" method="post">
                                     <button type="submit" class="btn btn-info">Next</button>
+                                    <a href="swap.php?id1=<?php echo $arr[0]["ID"]; ?>&id2=<?php echo $arr[1]["ID"]; ?>" class="btn btn-warning">Swap</a>
                                 </form>
                             </div>
 

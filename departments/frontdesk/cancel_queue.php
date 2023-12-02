@@ -18,9 +18,9 @@ $sql = "SELECT * FROM docu_table where user_id = '$id' order by docu_table_id DE
 $next = $conn->query($sql);
 $next2 = $next->fetch_array();
 
-echo '<pre>';
-var_dump($next2);
-echo '<pre>';
+// echo '<pre>';
+// var_dump($next2);
+// echo '<pre>';
 
 if ($next2['brgy_id']) {
     if ($next2['cedula']) {

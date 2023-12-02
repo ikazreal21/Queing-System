@@ -132,8 +132,11 @@ $result = mysqli_query($conn, $sql);
                     <div class="col-md-12">
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-heading" style="text-align: center;">
                                 Records for Today
+                            </div>
+                            <div class="panel-heading" style="text-align: end;">
+                                <a href="download.php" class="btn btn-warning  btn-wd">Export Record</a>
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
@@ -148,8 +151,8 @@ $result = mysqli_query($conn, $sql);
                                         </thead>
                                         <tbody>
                                         <?php
-while ($row = mysqli_fetch_assoc($result)) {
-    ?>
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                ?>
                                             <tr>
                                                 <td><?php echo $row['Department']; ?></td>
                                                 <td><?php echo $row['TIME']; ?></td>

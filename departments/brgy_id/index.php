@@ -13,7 +13,7 @@ $first_name = '';
 $birthday = '';
 $number_id = '';
 
-$sql = "SELECT * FROM tbl_brgyid brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id  order by ID ASC limit 1";
+$sql = "SELECT * FROM tbl_brgyid brgy, docu_table dc where DATE = '$date' and brgy.User_id = dc.user_id  order by ID ASC limit 2";
 $result = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Barangay ID</title>
 
     <link href="../../assets/css/main.css" rel="stylesheet" />
     <link href="../../assets/css/icons.css" rel="stylesheet" />
@@ -186,6 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </ul>
                                 <form action="" method="post">
                                     <button type="submit" class="btn btn-info">Next</button>
+                                    <a href="swap.php?id1=<?php echo $arr[0]["ID"]; ?>&id2=<?php echo $arr[1]["ID"]; ?>" class="btn btn-warning">Swap</a>
                                 </form>
                             </div>
 

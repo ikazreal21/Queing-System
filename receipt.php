@@ -63,12 +63,12 @@ if (count($arr2) != 0) {
     echo "Brgy. Mahabang Parang Angono, Rizal";
     echo "</div>";
     // echo "Department: " . '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp' . '<span style="display: inline; margin: 0 auto; text-align: right; font-size: 20px; font-family: Helvetica">' . $row["Department"] . '</span>' . '</br>';
-    echo "Date: " . '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp' . '<span style="display: inline; margin: 0 auto; text-align: right; font-size: 20px; font-family: Helvetica">' . $date . '</span>' . '<br>';
-	echo "Time: "  . '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp' . '<span style="display: inline; margin: 0 auto; text-align: right; font-size: 20px; font-family: Helvetica">' . $time . '</span>' . "<br>";
+    echo "Date: " . '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp' . '<span style="display: inline; margin: 0 auto; text-align: center; font-size: 10px; font-family: Helvetica">' . $date . '</span>' . '<br>';
+	echo "Time: "  . '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp'. '&nbsp' . '<span style="display: inline; margin: 0 auto; text-align: center; font-size: 10px; font-family: Helvetica">' . $time . '</span>' . "<br>";
     echo '<div style="text-align: center;">';
     echo "**Your Queue Identification**";
-    echo '<span style="display: block; margin: 0 auto; font-size: 50px; font-family: Helvetica">00-' . $id_queue . ' </span>';
-    echo '<span style="display: block; margin: 0 auto; font-size: 50px; font-family: Helvetica">' . $first_name . '</span>';
+    echo '<span style="display: block; margin: 0 auto; font-size: 30px; font-family: Helvetica">00-' . $id_queue . ' </span>';
+    echo '<span style="display: block; margin: 0 auto; font-size: 30px; font-family: Helvetica">' . $first_name . '</span>';
     echo "KEEP TICKET FOR VERIFICATION";
     echo '<div>';
     echo "</div>";
@@ -76,7 +76,7 @@ if (count($arr2) != 0) {
     echo "</div>";
     echo "</div>";
     echo '<div style="text-align: center;">';
-    echo "<img src='departments/frontdesk/image/".$id.".png' alt=''>";
+    echo "<img width='150' height='150' src='departments/frontdesk/image/".$id.".png' alt=''>";
     echo "</div>";
     echo '<div style="margin-bottom: 5px;">';
     echo "</div>";
