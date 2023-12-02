@@ -19,7 +19,8 @@ $result = mysqli_query($conn, $sql);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Queing System</title>
+<link rel="icon" type="image/x-icon" href="../assets/image/favicon.ico">
 
     <link href="../assets/css/main.css" rel="stylesheet" />
     <link href="../assets/css/icons.css" rel="stylesheet" />
